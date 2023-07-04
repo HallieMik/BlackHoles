@@ -7,6 +7,31 @@ body {
     color: #fff;
   }
   
+  .social-sharing {
+    display: flex;
+  }
+  
+/* Assuming you have included the Font Awesome CSS file */
+
+/* Assuming you have downloaded and included the Font Awesome font files */
+
+.social-media {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .social-icon {
+    display: inline-block;
+    margin: 0 5px;
+    color: #fff;
+    font-size: 24px;
+  }
+  
+  .social-icon:hover {
+    color: rgb(124, 61, 242);
+  }
+  
   
   nav ul {
     list-style-type: none;
@@ -229,6 +254,51 @@ body {
     height: 3px;
     background-color: #fff;
     animation: twinkling 11s infinite;
+  }
+
+  #quiz-container-gk, #quiz-container-gr, #quiz-container-bh, #quiz-container-sr {
+    margin-top: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  #question-gk, #question-gr, #question-bh, #question-sr {
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  #options-gk, #options-gr, #options-bh, #options-sr {
+    margin-bottom: 20px;
+  }
+  
+  #options label {
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  #submit-gk, #submit-bh, #submit-gr,
+#submit-sr {
+  padding: 10px 20px;
+  background-color: rgb(124, 61, 242);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+  
+  #result {
+    margin-top: 20px;
+    font-weight: bold;
+  }
+  
+  .correct {
+    color: green;
+  }
+  
+  .incorrect {
+    color: red;
   }
   
   

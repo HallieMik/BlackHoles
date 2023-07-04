@@ -10,7 +10,7 @@
         <title>MathJax Example</title>
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
         <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-        <link rel="stylesheet" href="fonts/Exo/fontawesome/css/all.css">
+        <link rel="stylesheet" href="fonts/fontawesome/css/all.css">
 
     </head>      
 <body>
@@ -23,7 +23,18 @@
     <div class="star6"></div>
     <div class="star7"></div>
   </div>
-  <header>          
+  <header>
+    <!-- <div class="social-media">
+        <a href="#" class="social-icon">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="#" class="social-icon">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a href="#" class="social-icon">
+          <i class="fab fa-instagram"></i>
+        </a>
+    </div>            -->
     <h1 class="title">Celestial Devourers</h1>
     <div class="search-bar">
       <input type="text" id="search-input" placeholder="Search...">
@@ -79,6 +90,15 @@
       <p>
         So how could we arrive at such a crazy result of time slowing down when you speed up? <br>Well, usually when you are in the back of a moving truck and toss a baseball, from land the baseball appears to have added the speed of the truck. <br> <br>However it has been observed that light stays the speed of light even in this case. Since it is the same speed in the truck where it covers more distance and out of the truck where it covers less distance, then the distance between each second must be larger for the light on the truck so that it keeps the same observed speed.
       </p>
+      <h2>Game: Relativity Racer</h2>
+      <h3>Press < and > arrows to change speed. Notice how the clock speed changes.</h3>
+      <div id="game-container">
+        <div id="character"></div>
+        <div id="time-display">Time: <span id="time">0</span>s</div>
+        <div id="result"></div>
+      </div>
+      <script src="script.js"></script>      
+
       <h3>Quick Math</h3>
       <p>
         To find out how much time slows down, let's make this a little more precise and do some back-of-the-napkin math...<br> <br>Let's start with the familiar non-special relativity case. If you observe a man in a clear train holding a ball going by at velocity \(v\), and the man tosses the ball forward with velocity \(u\), the observed velocity of the ball will be \(v+u\). <br> <br>However, after running multiple precise experiments, we have observed that light does not follow these same rules. When you are in a train traveling at \(v\) and you light a candle with light traveling at \(c\), the speed of light in the forward direction is \(c\), not \(c+v\). This constant speed of light is the basis for the effects of Special Relativity. <br> <br>This limit of the speed of light leads to another peculiar result. Let's say you are sitting in a tree watching a woman in a clear train passing below you. There is a mirror on the inner side of the train, and the woman sits across from the mirror, perpendicular to the path the train is traveling. <br> <br>The woman lights a candle, and from your perspective, the light from the candle takes a path of \(v\) to the mirror and back to the woman, traveling at the speed of light. From her perspective, the light traveled in a straight path to the mirror and back at the speed of \(c\). <br> <br>Both of you observe the light to have the same speed, but you observe the light to have traveled a further distance (\(v\) path versus straight). Since velocity equals \(\frac{{\text{{position}}}}{{\text{{time}}}}\), time equals \(\frac{{\text{{position}}}}{{\text{{velocity}}}}\). The position/velocity (which equals position/\(c\)) observed for the light is larger for you than it is for the woman in the train. Therefore, we see that less time has passed for her compared to you. <br> <br>We can see by geometry that \(t'\) (her time in the moving frame) \(= \gamma \times t\) (your time in the stationary frame), where \[\gamma = \frac{1}{\sqrt{1 - \left(\frac{v}{c}\right)^2}}\]<br> <br>Derivation: 
@@ -285,6 +305,12 @@
         <p>
         You may wonder how a black hole could form at all with time slowing to a halt for the supernova mass it's sucking in, so let's clarify this. While the mass that is sucked into the singularity might not be “aging” (like time didn’t pass for it as much as time passed for us watching it from afar), it still traveled through space into the black hole.
         </p>
+        <h3>Black Hole Pickup Line Generator</h3>
+        <div class="container">
+            <div id="pickup-line"></div>
+            <button id="generate-btn">Generate</button>
+        </div>
+
         <h3>LIGO</h3>
         <p>
             The "traceless mass quadrupole moment" is a tensor that describes how mass is distributed in space-time. We have discussed how mass distribution affects the curvature of space, but what we haven't discussed is that when this tensor changes, it can send out ripples in space-time known as gravitational waves.
@@ -326,6 +352,17 @@
       <p>
         Through telling the story of black holes we sure have highlighted crazy ways our universe behaves. <br> <br>As you travel faster time slows down. You can think of space and time as a woven fabric that curves with the presence of energy and mass. This curvature slows time down too. And even light that makes it past the event horizon can not escape the pull of a black hole.
       </p>
+      <h3>Physics Truth or Dare</h3>
+        <div class="container">
+            <div id="line-td"></div>
+            <button id="generate-btn-td">Generate</button>
+        </div>
+        <!-- <h3>Comments</h3>
+        <form id="comment-form">
+        <textarea id="comment-input" placeholder="Write a comment"></textarea>
+        <button type="submit">Submit</button>
+        </form>        
+        <div id="comments-list"></div> -->
     </section>
   </main>
   <footer>
@@ -431,401 +468,683 @@
   </script>
 
   <script>
-var quizContainerSR = document.getElementById('quiz-container-sr');
-var questionElementSR = document.getElementById('question-sr');
-var optionsElementSR = document.getElementById('options-sr');
-var submitButtonSR = document.getElementById('submit-sr');
-var resultElementSR = document.getElementById('result-sr');
+    var quizContainerSR = document.getElementById('quiz-container-sr');
+    var questionElementSR = document.getElementById('question-sr');
+    var optionsElementSR = document.getElementById('options-sr');
+    var submitButtonSR = document.getElementById('submit-sr');
+    var resultElementSR = document.getElementById('result-sr');
 
-var quizContainerGK = document.getElementById('quiz-container-gk');
-var questionElementGK = document.getElementById('question-gk');
-var optionsElementGK = document.getElementById('options-gk');
-var submitButtonGK = document.getElementById('submit-gk');
-var resultElementGK = document.getElementById('result-gk');
+    var quizContainerGK = document.getElementById('quiz-container-gk');
+    var questionElementGK = document.getElementById('question-gk');
+    var optionsElementGK = document.getElementById('options-gk');
+    var submitButtonGK = document.getElementById('submit-gk');
+    var resultElementGK = document.getElementById('result-gk');
 
-var quizContainerGR = document.getElementById('quiz-container-gr');
-var questionElementGR = document.getElementById('question-gr');
-var optionsElementGR = document.getElementById('options-gr');
-var submitButtonGR = document.getElementById('submit-gr');
-var resultElementGR = document.getElementById('result-gr');
+    var quizContainerGR = document.getElementById('quiz-container-gr');
+    var questionElementGR = document.getElementById('question-gr');
+    var optionsElementGR = document.getElementById('options-gr');
+    var submitButtonGR = document.getElementById('submit-gr');
+    var resultElementGR = document.getElementById('result-gr');
 
-var quizContainerBH = document.getElementById('quiz-container-bh');
-var questionElementBH = document.getElementById('question-bh');
-var optionsElementBH = document.getElementById('options-bh');
-var submitButtonBH = document.getElementById('submit-bh');
-var resultElementBH = document.getElementById('result-bh');
+    var quizContainerBH = document.getElementById('quiz-container-bh');
+    var questionElementBH = document.getElementById('question-bh');
+    var optionsElementBH = document.getElementById('options-bh');
+    var submitButtonBH = document.getElementById('submit-bh');
+    var resultElementBH = document.getElementById('result-bh');
 
-var quizQuestionsSR = [
-  {
-    question: 'What happens to time as you travel faster?',
-    options: ['It speeds up', 'It slows down', 'It remains the same', 'It stops'],
-    answer: 1
-  },
-  {
-    question: 'Special Relativity is based on the constant speed of which?',
-    options: ['Sound', 'Gravity', 'Light', 'Electricity'],
-    answer: 2
-  },
-  {
-    question: 'According to Special Relativity, if you observe someone moving at a high speed relative to you, their time appears to be:',
-    options: ['Faster', 'Slower', 'Unaffected', 'Stopped'],
-    answer: 1
-  },
-  {
-    question: 'Which paradox arises from time dilation in Special Relativity?',
-    options: ['Mirror Paradox', 'Light Paradox', 'Velocity Paradox', 'Twin Paradox'],
-    answer: 3
-  },
-  {
-    question: 'Special Relativity depends on the speed of light being the same in all reference frames.',
-    options: ['True', 'False'],
-    answer: 0
-  }
-];
+    var quizQuestionsSR = [
+    {
+        question: 'What happens to time as you travel faster?',
+        options: ['It speeds up', 'It slows down', 'It remains the same', 'It stops'],
+        answer: 1
+    },
+    {
+        question: 'Special Relativity is based on the constant speed of which?',
+        options: ['Sound', 'Gravity', 'Light', 'Electricity'],
+        answer: 2
+    },
+    {
+        question: 'According to Special Relativity, if you observe someone moving at a high speed relative to you, their time appears to be:',
+        options: ['Faster', 'Slower', 'Unaffected', 'Stopped'],
+        answer: 1
+    },
+    {
+        question: 'Which paradox arises from time dilation in Special Relativity?',
+        options: ['Mirror Paradox', 'Light Paradox', 'Velocity Paradox', 'Twin Paradox'],
+        answer: 3
+    },
+    {
+        question: 'Special Relativity depends on the speed of light being the same in all reference frames.',
+        options: ['True', 'False'],
+        answer: 0
+    }
+    ];
 
-var quizQuestionsGK = [
-  {
-    question: "What does a geodesic along a curved space-time surface represent?",
-    options: ["Path of energy", "Path of a rocket ship", "Path of light", "Any of the above"],
-    answer: 3
-  },
-  {
-    question: "What is the speed of light denoted by?",
-    options: ["v", "g", "c", "τ"],
-    answer: 2
-  },
-  {
-    question: "What is the Metric Tensor used to describe?",
-    options: ["Curvature of space", "Mass", "Velocity magnitude", "Christoffel Symbols"],
-    answer: 0
-  },
-  {
-    question: "What is the Minkowski Metric used for?",
-    options: ["General Relativity", "Special Relativity", "Curvature of space", "Christoffel Symbols"],
-    answer: 1
-  },
-];
+    var quizQuestionsGK = [
+    {
+        question: "What does a geodesic along a curved space-time surface represent?",
+        options: ["Path of energy", "Path of a rocket ship", "Path of light", "Any of the above"],
+        answer: 3
+    },
+    {
+        question: "What is the speed of light denoted by?",
+        options: ["v", "g", "c", "τ"],
+        answer: 2
+    },
+    {
+        question: "What is the Metric Tensor used to describe?",
+        options: ["Curvature of space", "Mass", "Velocity magnitude", "Christoffel Symbols"],
+        answer: 0
+    },
+    {
+        question: "What is the Minkowski Metric used for?",
+        options: ["General Relativity", "Special Relativity", "Curvature of space", "Christoffel Symbols"],
+        answer: 1
+    },
+    ];
 
-var quizQuestionsGR = [
-  {
-    question: "According to General Relativity, what causes gravity?",
-    options: ["Curvature of space-time", "Force", "Velocity", "Wind"],
-    answer: 0
-  },
-  {
-    question: "What does the Einstein field equations relate?",
-    options: ["The curvature of space to the presence of energy and mass", "The motion of planets to the forces", "The behavior of light to the size of photons"],
-    answer: 0
-  },
-];
+    var quizQuestionsGR = [
+    {
+        question: "According to General Relativity, what causes gravity?",
+        options: ["Curvature of space-time", "Force", "Velocity", "Wind"],
+        answer: 0
+    },
+    {
+        question: "What does the Einstein field equations relate?",
+        options: ["The curvature of space to the presence of energy and mass", "The motion of planets to the forces", "The behavior of light to the size of photons"],
+        answer: 0
+    },
+    ];
 
-var quizQuestionsBH = [
-  {
-    question: "What is a black hole?",
-    options: ["A region of space with extremely high temperature", "A collapsed star with infinite density", "An object with a fixed mass", "A source of unlimited energy"],
-    answer: 1
-  },
-  {
-    question: "What is the boundary of a black hole called?",
-    options: ["Event horizon", "Singularity", "Photon sphere", "Ergosphere"],
-    answer: 0
-  },
-  {
-    question: "How does time behave at the event horizon of a black hole?",
-    options: ["It slows down", "It speeds up", "It stops", "It doesn't change"],
-    answer: 2
-  },
-  {
-    question: "Which phenomenon is predicted by General Relativity and confirmed by the observation of gravitational waves?",
-    options: ["Time dilation", "Black holes", "Dark energy", "Quantum entanglement"],
-    answer: 1
-  },
-  {
-    question: "What is the term for the point of infinite density within a black hole?",
-    options: ["Event horizon", "Singularity", "Time", "Hawking Radiation"],
-    answer: 1
-  },
-  {
-    question: "BONUS: What is the name of the black hole at the center of our galaxy?",
-    options: ["Andromeda", "Sombrero", "Messier 87", "Sagittarius A*"],
-    answer: 3
-  },
-];
+    var quizQuestionsBH = [
+    {
+        question: "What is a black hole?",
+        options: ["A region of space with extremely high temperature", "A collapsed star with infinite density", "An object with a fixed mass", "A source of unlimited energy"],
+        answer: 1
+    },
+    {
+        question: "What is the boundary of a black hole called?",
+        options: ["Event horizon", "Singularity", "Photon sphere", "Ergosphere"],
+        answer: 0
+    },
+    {
+        question: "How does time behave at the event horizon of a black hole?",
+        options: ["It slows down", "It speeds up", "It stops", "It doesn't change"],
+        answer: 2
+    },
+    {
+        question: "Which phenomenon is predicted by General Relativity and confirmed by the observation of gravitational waves?",
+        options: ["Time dilation", "Black holes", "Dark energy", "Quantum entanglement"],
+        answer: 1
+    },
+    {
+        question: "What is the term for the point of infinite density within a black hole?",
+        options: ["Event horizon", "Singularity", "Time", "Hawking Radiation"],
+        answer: 1
+    },
+    {
+        question: "BONUS: What is the name of the black hole at the center of our galaxy?",
+        options: ["Andromeda", "Sombrero", "Messier 87", "Sagittarius A*"],
+        answer: 3
+    },
+    ];
 
-var currentQuestionIndexSR = 0;
-var scoreSR = 0;
-var currentQuizSR = quizQuestionsSR;
+    var currentQuestionIndexSR = 0;
+    var scoreSR = 0;
+    var currentQuizSR = quizQuestionsSR;
 
-var currentQuestionIndexGK = 0;
-var scoreGK = 0;
-var currentQuizGK = quizQuestionsGK;
+    var currentQuestionIndexGK = 0;
+    var scoreGK = 0;
+    var currentQuizGK = quizQuestionsGK;
 
-var currentQuestionIndexGR = 0;
-var scoreGR = 0;
-var currentQuizGR = quizQuestionsGR;
+    var currentQuestionIndexGR = 0;
+    var scoreGR = 0;
+    var currentQuizGR = quizQuestionsGR;
 
-var currentQuestionIndexBH = 0;
-var scoreBH = 0;
-var currentQuizBH = quizQuestionsBH;
+    var currentQuestionIndexBH = 0;
+    var scoreBH = 0;
+    var currentQuizBH = quizQuestionsBH;
 
-function displayQuestionSR() {
-  var currentQuestion = currentQuizSR[currentQuestionIndexSR];
-  questionElementSR.textContent = currentQuestion.question;
+    function displayQuestionSR() {
+    var currentQuestion = currentQuizSR[currentQuestionIndexSR];
+    questionElementSR.textContent = currentQuestion.question;
 
-  optionsElementSR.innerHTML = '';
-  for (var i = 0; i < currentQuestion.options.length; i++) {
-    var optionLabel = document.createElement('label');
-    var optionInput = document.createElement('input');
-    optionInput.type = 'radio';
-    optionInput.name = 'quiz-option-sr';
-    optionInput.value = i;
+    optionsElementSR.innerHTML = '';
+    for (var i = 0; i < currentQuestion.options.length; i++) {
+        var optionLabel = document.createElement('label');
+        var optionInput = document.createElement('input');
+        optionInput.type = 'radio';
+        optionInput.name = 'quiz-option-sr';
+        optionInput.value = i;
 
-    optionLabel.appendChild(optionInput);
-    optionLabel.appendChild(document.createTextNode(currentQuestion.options[i]));
-    optionsElementSR.appendChild(optionLabel);
-  }
-}
+        optionLabel.appendChild(optionInput);
+        optionLabel.appendChild(document.createTextNode(currentQuestion.options[i]));
+        optionsElementSR.appendChild(optionLabel);
+    }
+    }
 
-function checkAnswerSR() {
-  var selectedOption = document.querySelector('input[name="quiz-option-sr"]:checked');
+    function checkAnswerSR() {
+    var selectedOption = document.querySelector('input[name="quiz-option-sr"]:checked');
 
-  if (!selectedOption) {
-    return; // No answer selected
-  }
+    if (!selectedOption) {
+        return; // No answer selected
+    }
 
-  var selectedAnswer = parseInt(selectedOption.value);
+    var selectedAnswer = parseInt(selectedOption.value);
 
-  var currentQuestion = currentQuizSR[currentQuestionIndexSR];
-  var correctAnswer = currentQuestion.answer;
+    var currentQuestion = currentQuizSR[currentQuestionIndexSR];
+    var correctAnswer = currentQuestion.answer;
 
-  if (selectedAnswer === correctAnswer) {
-    scoreSR++;
-    selectedOption.parentNode.classList.add('correct');
-  } else {
-    selectedOption.parentNode.classList.add('incorrect');
-  }
+    if (selectedAnswer === correctAnswer) {
+        scoreSR++;
+        selectedOption.parentNode.classList.add('correct');
+    } else {
+        selectedOption.parentNode.classList.add('incorrect');
+    }
 
-  submitButtonSR.textContent = 'Next Question';
-  submitButtonSR.removeEventListener('click', checkAnswerSR);
-  submitButtonSR.addEventListener('click', nextQuestionSR);
-}
+    submitButtonSR.textContent = 'Next Question';
+    submitButtonSR.removeEventListener('click', checkAnswerSR);
+    submitButtonSR.addEventListener('click', nextQuestionSR);
+    }
 
-function nextQuestionSR() {
-  currentQuestionIndexSR++;
+    function nextQuestionSR() {
+    currentQuestionIndexSR++;
 
-  if (currentQuestionIndexSR >= quizQuestionsSR.length) {
-    quizContainerSR.style.display = 'none';
-    resultElementSR.textContent = 'Quiz completed! Your score: ' + scoreSR + '/' + quizQuestionsSR.length;
-    resultElementSR.style.display = 'block';
-  } else {
-    displayQuestionSR();
-    submitButtonSR.textContent = 'Submit';
-    optionsElementSR.querySelectorAll('.correct, .incorrect').forEach(function (option) {
-      option.classList.remove('correct', 'incorrect');
-    });
-    submitButtonSR.removeEventListener('click', nextQuestionSR);
+    if (currentQuestionIndexSR >= quizQuestionsSR.length) {
+        quizContainerSR.style.display = 'none';
+        resultElementSR.textContent = 'Quiz completed! Your score: ' + scoreSR + '/' + quizQuestionsSR.length;
+        resultElementSR.style.display = 'block';
+    } else {
+        displayQuestionSR();
+        submitButtonSR.textContent = 'Submit';
+        optionsElementSR.querySelectorAll('.correct, .incorrect').forEach(function (option) {
+        option.classList.remove('correct', 'incorrect');
+        });
+        submitButtonSR.removeEventListener('click', nextQuestionSR);
+        submitButtonSR.addEventListener('click', checkAnswerSR);
+    }
+    }
+
     submitButtonSR.addEventListener('click', checkAnswerSR);
-  }
-}
 
-submitButtonSR.addEventListener('click', checkAnswerSR);
-
-displayQuestionSR();
+    displayQuestionSR();
 
 
-function displayQuestionGK() {
-  var currentQuestion = currentQuizGK[currentQuestionIndexGK];
-  questionElementGK.textContent = currentQuestion.question;
+    function displayQuestionGK() {
+    var currentQuestion = currentQuizGK[currentQuestionIndexGK];
+    questionElementGK.textContent = currentQuestion.question;
 
-  optionsElementGK.innerHTML = '';
-  for (var i = 0; i < currentQuestion.options.length; i++) {
-    var optionLabel = document.createElement('label');
-    var optionInput = document.createElement('input');
-    optionInput.type = 'radio';
-    optionInput.name = 'quiz-option-gk';
-    optionInput.value = i;
+    optionsElementGK.innerHTML = '';
+    for (var i = 0; i < currentQuestion.options.length; i++) {
+        var optionLabel = document.createElement('label');
+        var optionInput = document.createElement('input');
+        optionInput.type = 'radio';
+        optionInput.name = 'quiz-option-gk';
+        optionInput.value = i;
 
-    optionLabel.appendChild(optionInput);
-    optionLabel.appendChild(document.createTextNode(currentQuestion.options[i]));
-    optionsElementGK.appendChild(optionLabel);
-  }
-}
+        optionLabel.appendChild(optionInput);
+        optionLabel.appendChild(document.createTextNode(currentQuestion.options[i]));
+        optionsElementGK.appendChild(optionLabel);
+    }
+    }
 
-function checkAnswerGK() {
-  var selectedOption = document.querySelector('input[name="quiz-option-gk"]:checked');
+    function checkAnswerGK() {
+    var selectedOption = document.querySelector('input[name="quiz-option-gk"]:checked');
 
-  if (!selectedOption) {
-    return; // No answer selected
-  }
+    if (!selectedOption) {
+        return; // No answer selected
+    }
 
-  var selectedAnswer = parseInt(selectedOption.value);
+    var selectedAnswer = parseInt(selectedOption.value);
 
-  var currentQuestion = currentQuizGK[currentQuestionIndexGK];
-  var correctAnswer = currentQuestion.answer;
+    var currentQuestion = currentQuizGK[currentQuestionIndexGK];
+    var correctAnswer = currentQuestion.answer;
 
-  if (selectedAnswer === correctAnswer) {
-    scoreGK++;
-    selectedOption.parentNode.classList.add('correct');
-  } else {
-    selectedOption.parentNode.classList.add('incorrect');
-  }
+    if (selectedAnswer === correctAnswer) {
+        scoreGK++;
+        selectedOption.parentNode.classList.add('correct');
+    } else {
+        selectedOption.parentNode.classList.add('incorrect');
+    }
 
-  submitButtonGK.textContent = 'Next Question';
-  submitButtonGK.removeEventListener('click', checkAnswerGK);
-  submitButtonGK.addEventListener('click', nextQuestionGK);
-}
+    submitButtonGK.textContent = 'Next Question';
+    submitButtonGK.removeEventListener('click', checkAnswerGK);
+    submitButtonGK.addEventListener('click', nextQuestionGK);
+    }
 
-function nextQuestionGK() {
-  currentQuestionIndexGK++;
+    function nextQuestionGK() {
+    currentQuestionIndexGK++;
 
-  if (currentQuestionIndexGK >= quizQuestionsGK.length) {
-    quizContainerGK.style.display = 'none';
-    resultElementGK.textContent = 'Quiz completed! Your score: ' + scoreGK + '/' + quizQuestionsGK.length;
-    resultElementGK.style.display = 'block';
-  } else {
-    displayQuestionGK();
-    submitButtonGK.textContent = 'Submit';
-    optionsElementGK.querySelectorAll('.correct, .incorrect').forEach(function (option) {
-      option.classList.remove('correct', 'incorrect');
-    });
-    submitButtonGK.removeEventListener('click', nextQuestionGK);
+    if (currentQuestionIndexGK >= quizQuestionsGK.length) {
+        quizContainerGK.style.display = 'none';
+        resultElementGK.textContent = 'Quiz completed! Your score: ' + scoreGK + '/' + quizQuestionsGK.length;
+        resultElementGK.style.display = 'block';
+    } else {
+        displayQuestionGK();
+        submitButtonGK.textContent = 'Submit';
+        optionsElementGK.querySelectorAll('.correct, .incorrect').forEach(function (option) {
+        option.classList.remove('correct', 'incorrect');
+        });
+        submitButtonGK.removeEventListener('click', nextQuestionGK);
+        submitButtonGK.addEventListener('click', checkAnswerGK);
+    }
+    }
+
     submitButtonGK.addEventListener('click', checkAnswerGK);
-  }
-}
 
-submitButtonGK.addEventListener('click', checkAnswerGK);
-
-displayQuestionGK();
+    displayQuestionGK();
 
 
-function displayQuestionGR() {
-  var currentQuestion = currentQuizGR[currentQuestionIndexGR];
-  questionElementGR.textContent = currentQuestion.question;
+    function displayQuestionGR() {
+    var currentQuestion = currentQuizGR[currentQuestionIndexGR];
+    questionElementGR.textContent = currentQuestion.question;
 
-  optionsElementGR.innerHTML = '';
-  for (var i = 0; i < currentQuestion.options.length; i++) {
-    var optionLabel = document.createElement('label');
-    var optionInput = document.createElement('input');
-    optionInput.type = 'radio';
-    optionInput.name = 'quiz-option-gr';
-    optionInput.value = i;
+    optionsElementGR.innerHTML = '';
+    for (var i = 0; i < currentQuestion.options.length; i++) {
+        var optionLabel = document.createElement('label');
+        var optionInput = document.createElement('input');
+        optionInput.type = 'radio';
+        optionInput.name = 'quiz-option-gr';
+        optionInput.value = i;
 
-    optionLabel.appendChild(optionInput);
-    optionLabel.appendChild(document.createTextNode(currentQuestion.options[i]));
-    optionsElementGR.appendChild(optionLabel);
-  }
-}
+        optionLabel.appendChild(optionInput);
+        optionLabel.appendChild(document.createTextNode(currentQuestion.options[i]));
+        optionsElementGR.appendChild(optionLabel);
+    }
+    }
 
-function checkAnswerGR() {
-  var selectedOption = document.querySelector('input[name="quiz-option-gr"]:checked');
+    function checkAnswerGR() {
+    var selectedOption = document.querySelector('input[name="quiz-option-gr"]:checked');
 
-  if (!selectedOption) {
-    return; // No answer selected
-  }
+    if (!selectedOption) {
+        return; // No answer selected
+    }
 
-  var selectedAnswer = parseInt(selectedOption.value);
+    var selectedAnswer = parseInt(selectedOption.value);
 
-  var currentQuestion = currentQuizGR[currentQuestionIndexGR];
-  var correctAnswer = currentQuestion.answer;
+    var currentQuestion = currentQuizGR[currentQuestionIndexGR];
+    var correctAnswer = currentQuestion.answer;
 
-  if (selectedAnswer === correctAnswer) {
-    scoreGR++;
-    selectedOption.parentNode.classList.add('correct');
-  } else {
-    selectedOption.parentNode.classList.add('incorrect');
-  }
+    if (selectedAnswer === correctAnswer) {
+        scoreGR++;
+        selectedOption.parentNode.classList.add('correct');
+    } else {
+        selectedOption.parentNode.classList.add('incorrect');
+    }
 
-  submitButtonGR.textContent = 'Next Question';
-  submitButtonGR.removeEventListener('click', checkAnswerGR);
-  submitButtonGR.addEventListener('click', nextQuestionGR);
-}
+    submitButtonGR.textContent = 'Next Question';
+    submitButtonGR.removeEventListener('click', checkAnswerGR);
+    submitButtonGR.addEventListener('click', nextQuestionGR);
+    }
 
-function nextQuestionGR() {
-  currentQuestionIndexGR++;
+    function nextQuestionGR() {
+    currentQuestionIndexGR++;
 
-  if (currentQuestionIndexGR >= quizQuestionsGR.length) {
-    quizContainerGR.style.display = 'none';
-    resultElementGR.textContent = 'Quiz completed! Your score: ' + scoreGR + '/' + quizQuestionsGR.length;
-    resultElementGR.style.display = 'block';
-  } else {
-    displayQuestionGR();
-    submitButtonGR.textContent = 'Submit';
-    optionsElementGR.querySelectorAll('.correct, .incorrect').forEach(function (option) {
-      option.classList.remove('correct', 'incorrect');
-    });
-    submitButtonGR.removeEventListener('click', nextQuestionGR);
+    if (currentQuestionIndexGR >= quizQuestionsGR.length) {
+        quizContainerGR.style.display = 'none';
+        resultElementGR.textContent = 'Quiz completed! Your score: ' + scoreGR + '/' + quizQuestionsGR.length;
+        resultElementGR.style.display = 'block';
+    } else {
+        displayQuestionGR();
+        submitButtonGR.textContent = 'Submit';
+        optionsElementGR.querySelectorAll('.correct, .incorrect').forEach(function (option) {
+        option.classList.remove('correct', 'incorrect');
+        });
+        submitButtonGR.removeEventListener('click', nextQuestionGR);
+        submitButtonGR.addEventListener('click', checkAnswerGR);
+    }
+    }
+
     submitButtonGR.addEventListener('click', checkAnswerGR);
-  }
-}
 
-submitButtonGR.addEventListener('click', checkAnswerGR);
-
-displayQuestionGR();
+    displayQuestionGR();
 
 
-function displayQuestionBH() {
-  var currentQuestion = currentQuizBH[currentQuestionIndexBH];
-  questionElementBH.textContent = currentQuestion.question;
+    function displayQuestionBH() {
+    var currentQuestion = currentQuizBH[currentQuestionIndexBH];
+    questionElementBH.textContent = currentQuestion.question;
 
-  optionsElementBH.innerHTML = '';
-  for (var i = 0; i < currentQuestion.options.length; i++) {
-    var optionLabel = document.createElement('label');
-    var optionInput = document.createElement('input');
-    optionInput.type = 'radio';
-    optionInput.name = 'quiz-option-bh';
-    optionInput.value = i;
+    optionsElementBH.innerHTML = '';
+    for (var i = 0; i < currentQuestion.options.length; i++) {
+        var optionLabel = document.createElement('label');
+        var optionInput = document.createElement('input');
+        optionInput.type = 'radio';
+        optionInput.name = 'quiz-option-bh';
+        optionInput.value = i;
 
-    optionLabel.appendChild(optionInput);
-    optionLabel.appendChild(document.createTextNode(currentQuestion.options[i]));
-    optionsElementBH.appendChild(optionLabel);
-  }
-}
+        optionLabel.appendChild(optionInput);
+        optionLabel.appendChild(document.createTextNode(currentQuestion.options[i]));
+        optionsElementBH.appendChild(optionLabel);
+    }
+    }
 
-function checkAnswerBH() {
-  var selectedOption = document.querySelector('input[name="quiz-option-bh"]:checked');
+    function checkAnswerBH() {
+    var selectedOption = document.querySelector('input[name="quiz-option-bh"]:checked');
 
-  if (!selectedOption) {
-    return; // No answer selected
-  }
+    if (!selectedOption) {
+        return; // No answer selected
+    }
 
-  var selectedAnswer = parseInt(selectedOption.value);
+    var selectedAnswer = parseInt(selectedOption.value);
 
-  var currentQuestion = currentQuizBH[currentQuestionIndexBH];
-  var correctAnswer = currentQuestion.answer;
+    var currentQuestion = currentQuizBH[currentQuestionIndexBH];
+    var correctAnswer = currentQuestion.answer;
 
-  if (selectedAnswer === correctAnswer) {
-    scoreBH++;
-    selectedOption.parentNode.classList.add('correct');
-  } else {
-    selectedOption.parentNode.classList.add('incorrect');
-  }
+    if (selectedAnswer === correctAnswer) {
+        scoreBH++;
+        selectedOption.parentNode.classList.add('correct');
+    } else {
+        selectedOption.parentNode.classList.add('incorrect');
+    }
 
-  submitButtonBH.textContent = 'Next Question';
-  submitButtonBH.removeEventListener('click', checkAnswerBH);
-  submitButtonBH.addEventListener('click', nextQuestionBH);
-}
+    submitButtonBH.textContent = 'Next Question';
+    submitButtonBH.removeEventListener('click', checkAnswerBH);
+    submitButtonBH.addEventListener('click', nextQuestionBH);
+    }
 
-function nextQuestionBH() {
-  currentQuestionIndexBH++;
+    function nextQuestionBH() {
+    currentQuestionIndexBH++;
 
-  if (currentQuestionIndexBH >= quizQuestionsBH.length) {
-    quizContainerBH.style.display = 'none';
-    resultElementBH.textContent = 'Quiz completed! Your score: ' + scoreBH + '/' + quizQuestionsBH.length;
-    resultElementBH.style.display = 'block';
-  } else {
-    displayQuestionBH();
-    submitButtonBH.textContent = 'Submit';
-    optionsElementBH.querySelectorAll('.correct, .incorrect').forEach(function (option) {
-      option.classList.remove('correct', 'incorrect');
-    });
-    submitButtonBH.removeEventListener('click', nextQuestionBH);
+    if (currentQuestionIndexBH >= quizQuestionsBH.length) {
+        quizContainerBH.style.display = 'none';
+        resultElementBH.textContent = 'Quiz completed! Your score: ' + scoreBH + '/' + quizQuestionsBH.length;
+        resultElementBH.style.display = 'block';
+    } else {
+        displayQuestionBH();
+        submitButtonBH.textContent = 'Submit';
+        optionsElementBH.querySelectorAll('.correct, .incorrect').forEach(function (option) {
+        option.classList.remove('correct', 'incorrect');
+        });
+        submitButtonBH.removeEventListener('click', nextQuestionBH);
+        submitButtonBH.addEventListener('click', checkAnswerBH);
+    }
+    }
+
     submitButtonBH.addEventListener('click', checkAnswerBH);
-  }
+
+    displayQuestionBH();
+
+  </script>
+
+  <script>
+    var character = document.getElementById('character');
+    var obstacle = document.getElementById('obstacle');
+    var finishLine = document.getElementById('finish-line');
+    var timerDisplay = document.getElementById('time-display');
+    var resultDisplay = document.getElementById('result');
+
+    var time = 0; // Initial time in seconds
+    var speed = 0; // Initial speed
+    var positionX = 200; // Initial character X position
+
+    var intervalId;
+
+    // Update character position based on speed and time
+    function updateCharacterPosition() {
+    positionX += speed;
+    character.style.left = positionX + 'px';
+    }
+
+    // Update timer display
+    function updateTimerDisplay() {
+    var relativeSpeed = Math.abs(speed); // Adjust the speed factor as needed
+    scaleFactor = 0.1;
+    if ((1 - scaleFactor * relativeSpeed) >= 0) {
+        time += 1 - scaleFactor * relativeSpeed; // Increase time based on relative speed
+    } // else time changes slow because speed is super high
+    else{
+        time += 0.1;
+    }
+    timerDisplay.textContent = Math.round(time) + 's'; // Round the time to the nearest second
+    }
+
+    // Event listener for keydown event
+    document.addEventListener('keydown', function (event) {
+    if (event.keyCode === 37) {
+        speed -= 1; // Decrease speed when left arrow key is pressed
+    } else if (event.keyCode === 39) {
+        speed += 1; // Increase speed when right arrow key is pressed
+    }
+    });
+
+    // Start the game
+    function startGame() {
+    intervalId = setInterval(function () {
+        updateCharacterPosition();
+        updateTimerDisplay();
+
+        if (time >= 500) {
+        clearInterval(intervalId);
+        resultDisplay.textContent = 'Refresh page to Play!';
+        resultDisplay.style.display = 'block';
+        }
+    }, 100);
+    }
+
+    // Start the game when the page loads
+    window.addEventListener('load', startGame);
+  </script>
+  <script>
+    var pickupLines = [
+    "Excuse me, but I seem to have fallen into your gravitational field.",
+    "Are you a black hole? Because you're pulling me in with your irresistible gravity.",
+    "Is your event horizon as captivating as your smile?",
+    "Excuse me, but I seem to have fallen into your gravitational field.",
+    "You must be a singularity because time stops when I'm with you.",
+    "I'm not afraid to venture into your event horizon; your love is worth the risk.",
+    "Are you a supermassive black hole? Because you've consumed my heart.",
+    "You must emit Hawking radiation because you're hotter than anything in the universe.",
+    "Your gravitational pull is strong, but it's nothing compared to the pull you have on my heart.",
+    "Let's escape the escape velocity and create our own universe of love.",
+    "Are you a wormhole? Because I'd travel through space and time just to be by your side.",
+    "If I were a photon, I'd travel through the fabric of space-time just to meet you.",
+    "Can I be your cosmic companion on this interstellar journey?",
+    "Your smile is brighter than a quasar, and it's lighting up my world.",
+    "I must be caught in your gravitational lens because you make everything around me look beautiful.",
+    "Is your love as mysterious as the singularity at the center of a black hole?",
+    "If I were a star, I'd collapse under my own gravity just to be near you.",
+    "I feel a gravitational attraction towards you stronger than any force in the universe.",
+    "Let's create an eternal love that not even a black hole can tear apart.",
+    "Are you a cosmic string? Because you've tied my heart to yours.",
+    "Can I be your cosmic dust? I promise to make your universe more beautiful.",
+    "I'm lost in the darkness of your eyes, like a photon unable to escape a black hole.",
+    "I may be falling, but I'm falling for you. Will you catch me?",
+    "Just like a black hole, your love is infinitely dense and impossible to resist.",
+    "Are you a pulsar? Because you've sent a signal straight to my heart.",
+    "Let's create a love so intense that it warps the fabric of the universe.",
+    "Can I be the matter that falls into your singularity and becomes part of your heart?",
+    "Are you a gravitational wave? Because you've caused a ripple in my world.",
+    "You must be made of dark matter because you're the missing piece in my life.",
+    "Let's defy the laws of physics and make our own rules of attraction.",
+    "Just like a black hole, you've captured my heart and I can't escape your pull.",
+    "Are you a stellar nursery? Because I want to create something beautiful with you.",
+    "I must be experiencing time dilation because a moment with you feels like an eternity.",
+    "You're like the singularity at the center of a black hole – the source of my attraction.",
+    "Let's get lost in the cosmic dance of love and explore the depths of the universe together.",
+    "Are you a white dwarf? Because you've ignited a spark within me.",
+    "Your gravitational field is so strong; I can't help but be drawn to you.",
+    "Just like a black hole, you've warped my perception of reality; all I see is you.",
+    "If I were a star, I'd go supernova just to create a beautiful love story with you.",
+    "Are you a cosmic ray? Because you've energized my heart.",
+    "Let's merge like two neutron stars and create an explosion of love.",
+    "You must be a celestial body because I feel the gravitational force between us.",
+    "Can I be your event horizon? I promise to keep you safe and be your closest boundary.",
+    "Are you a gravitational lens? Because you've distorted my view, and all I see is you.",
+    "Just like a black hole, your love is mysterious and full of wonders.",
+    "You're the singularity that gives meaning to my existence.",
+    "Are you a quasar? Because you radiate beauty and intensity.",
+    "I must be in a space-time loop because I can't stop thinking about you.",
+    "Can I be your cosmic ray detector? I promise to always sense your love.",
+    "Just like the accretion disk of a black hole, you've captured my attention and spun my world.",
+    "Are you a cosmic microwave background? Because you fill my universe with warmth.",
+    "You must be a gravitational wave detector because you've detected the waves of my love.",
+    "Let's create a love so bright that it outshines any supernova in the universe.",
+    "Are you a dark nebula? Because you've clouded my mind with thoughts of you.",
+    "Just like a black hole, you've collapsed my heart into a singularity of love.",
+    "Your gravitational pull is stronger than the force of a thousand suns.",
+    "Can I be your cosmic explorer? I want to discover every corner of your heart.",
+    "You must have a black hole inside you because you've swallowed my heart whole.",
+    "Just like the event horizon, you've captured my attention and I can't escape your allure.",
+    "Are you a cosmic ray shower? Because you've showered me with love and happiness.",
+    "Let's create a love so powerful that it bends the very fabric of the universe.",
+    "Are you a quark-gluon plasma? Because being with you ignites a fiery passion within me.",
+    "Just like a black hole, your love is a beautiful enigma that I want to unravel.",
+    "You're the gravitational force that keeps my world in balance.",
+    "Can I be your cosmic constant? I promise to always be by your side.",
+    "You must be a cosmic microwave background because you bring warmth and joy to my life.",
+    "Just like a neutron star, you're the densest source of love in my universe.",
+    "Are you a dark energy? Because you're expanding my heart in ways I never thought possible.",
+    "You're the singularity that defies the laws of physics and captures my heart.",
+    "Can I be your cosmic ray? I promise to shower you with love and positive energy.",
+    "Just like a black hole, you're a captivating mystery that I want to explore.",
+    "Are you a stellar wind? Because you've blown me away with your beauty.",
+    "You must be a celestial event because being with you feels like a once-in-a-lifetime experience.",
+    "Just like a black hole, your love has a gravitational pull that I can't resist.",
+    "Can I be your cosmic wanderer? I want to explore the depths of your heart.",
+    "You're the cosmic radiation that energizes my soul.",
+    "Are you a dark matter halo? Because you surround me with a sense of comfort and mystery.",
+    "Just like a pulsar, your love sends signals straight to my heart.",
+    "You must be a cosmic web because you've intertwined your existence with mine.",
+    "Can I be your cosmic particle? I promise to be the building block of our love.",
+    "Just like a black hole, you're a captivating force that draws me closer.",
+    "Are you a gamma-ray burst? Because you've ignited a burst of love in my heart.",
+    "You must be a cosmic microwave background because being with you fills my life with warmth and light.",
+    "Just like a black hole, your love has a gravitational lens that focuses my attention on you.",
+    "Can I be your cosmic singularity? I promise to be the center of your universe.",
+    "You're the cosmic string that connects my heart to yours.",
+    "Are you a dark energy field? Because you've expanded my love beyond measure.",
+    "Just like a black hole, your love has a profound impact on everything around you.",
+    "You must be a cosmic ray detector because you've detected the particles of my love.",
+    "Can I be your cosmic companion? I want to explore the vastness of love with you.",
+    "Just like the accretion disk of a black hole, your love spins around me, drawing me closer.",
+    "Are you a gravitational lensing effect? Because you've bent my heart towards you.",
+    "You're the cosmic background radiation that permeates every aspect of my life.",
+    "Just like a black hole, your love has a gravitational force that keeps me grounded.",
+    "Can I be your cosmic anomaly? I promise to bring excitement and wonder to your life.",
+    "You must be a celestial body because you illuminate my world with your presence.",
+    "Just like the event horizon, you've become the boundary beyond which I cannot imagine my life.",
+    "Are you a gravitational wave source? Because you've sent waves of love crashing into my heart.",
+    "You're the cosmic dust that settles on my soul and makes it shine.",
+    "Just like a black hole, your love has a magnetic pull that I can't escape.",
+    "Can I be your cosmic phenomenon? I promise to bring awe and inspiration to your life.",
+    "Just like a pulsar, your love emits signals that resonate with my heart.",
+    "You must be a cosmic web because you've woven your love into every fiber of my being.",
+    "Let's create a love that defies the laws of physics and expands infinitely.",
+    "Just like a black hole, your love has a gravitational force that binds us together.",
+    "Are you a gamma-ray burst? Because your love is an explosion of joy in my heart.",
+    "You must be a cosmic microwave background because your presence brings warmth and light to my life.",
+    "Just like a black hole, your love distorts my perception of reality, making everything revolve around you.",
+    "Can I be your cosmic singularity? I promise to be the focal point of our love.",
+    "You're the cosmic string that connects the pieces of my heart.",
+    "Are you a dark energy field? Because your love expands my universe beyond measure.",
+    "Just like a black hole, your love has a profound influence on everything in its vicinity.",
+    "You must be a cosmic ray detector because you've detected the particles of my affection.",
+    "Can I be your cosmic companion? I want to explore the vastness of love with you by my side.",
+    "Just like the accretion disk of a black hole, your love revolves around me, pulling me closer to you.",
+    "Are you a gravitational lensing effect? Because you've bent the trajectory of my heart towards you.",
+    "You're the cosmic background radiation that permeates every aspect of my life, filling it with warmth.",
+    "Just like a black hole, your love has a gravitational force that keeps me centered and grounded.",
+    "Can I be your cosmic anomaly? I promise to bring excitement and wonder to your life every day.",
+    "You must be a celestial body because you illuminate my world with the light of your love.",
+    "Just like the event horizon, you've become the boundary beyond which I cannot imagine my life without you.",
+    "Are you a gravitational wave source? Because your love sends waves crashing into my heart, creating ripples of happiness.",
+    "You're the cosmic dust that settles on my soul, making it shine with your presence.",
+    "Just like a black hole, your love has a magnetic pull that I can't resist, drawing me closer to you.",
+    "Can I be your cosmic phenomenon? I promise to bring awe and inspiration to your life every step of the way.",
+    "Just like a pulsar, your love emits signals that resonate deep within my heart, filling it with joy.",
+    "You must be a cosmic web because you've woven your love into every fiber of my being, connecting us in ways I never thought possible.",
+    "Let's create a love that defies the laws of physics and expands infinitely, encompassing the entire universe.",
+    "Just like a black hole, your love has a gravitational force that binds us together, keeping us intertwined in an eternal embrace.",
+    "Are you a gamma-ray burst? Because your love is an explosion of happiness in my heart, illuminating my world with its brilliance.",
+    "You must be a cosmic microwave background because your presence brings warmth and light to my life, making everything feel cozy and bright.",
+    "Just like a black hole, your love distorts my perception of reality, making everything revolve around you, the center of my universe.",
+    "Can I be your cosmic singularity? I promise to be the focal point of our love, the source of light and warmth that nourishes our hearts.",
+    "You're the cosmic string that connects the pieces of my heart, keeping them in harmony and resonance with yours.",
+    "Are you a dark energy field? Because your love expands my universe beyond measure, pushing the boundaries of what I thought was possible.",
+    "Just like a black hole, your love has a profound influence on everything in its vicinity, bending and shaping the course of our lives together.",
+    ];
+
+    var pickupLineDisplay = document.getElementById('pickup-line');
+    var generateBtn = document.getElementById('generate-btn');
+
+    // Function to generate a random pickup line
+    function generatePickupLine() {
+        var randomIndex = Math.floor(Math.random() * pickupLines.length);
+        var randomPickupLine = pickupLines[randomIndex];
+        pickupLineDisplay.textContent = randomPickupLine;
+    }
+
+    // Event listener for the "Generate" button click
+    generateBtn.addEventListener('click', generatePickupLine);
+  </script>
+  <script>
+    var truthDare = [
+        "What is the most mind-boggling concept you've encountered in quantum mechanics?",
+        "What is your favorite application of relativity?",
+        "Have you ever had a heated debate about dark matter or dark energy?",
+        "What aspect of black holes fascinates you?",
+        "What is the most perplexing paradox in the realm of general relativity that you've come across?",
+        "Explain the concept of gravitational time dilation to a non-science major in under two minutes.",
+        "Perform a skit where you portray a particle experiencing quantum tunneling.",
+        "Perform a skit where you fall into a black hole.",
+        "Engage in a debate defending the practicality of harnessing energy from a black hole.",
+        "Explain the concept of event horizons to a friend using an analogy from everyday life.",
+        "Perform a monologue as a photon traveling through space, experiencing redshift or blueshift.",
+        "Create a rube golberg demonstration illustrating the concept of potential energy conversion to kinetic energy.",
+        "Have you ever pondered the concept of wormholes and their potential as shortcuts in spacetime?",
+        "Have you ever considered the implications of the multiverse theory on our understanding of reality?",
+        "Have you ever contemplated the idea of time travel and its compatibility with the laws of physics?",
+        "Share your thoughts on the possibility of a unified theory that reconciles quantum mechanics and general relativity.",
+        "Create a visual representation of a spacetime diagram depicting time dilation near a massive object.",
+        "Perform a poetry piece inspired by the mysteries of dark matter and dark energy.",
+        "Participate in a group discussion exploring the ethical implications of space-time manipulation.",
+        "Participate in a role-play scenario where you embody a physicist you admire explaining a physics concept you've recently learned more about"
+    ];
+
+    var tdLineDisplay = document.getElementById('line-td');
+    var generateBtn = document.getElementById('generate-btn-td');
+
+    // Function to generate a random truth or dare question
+    function generateTD() {
+        var randomIndex = Math.floor(Math.random() * truthDare.length);
+        var randomTruthDare = truthDare[randomIndex];
+        tdLineDisplay.textContent = randomTruthDare;
+    }
+
+    // Event listener for the "Generate" button click
+    generateBtn.addEventListener('click', generateTD);
+  </script>
+  <script>
+ // Function to handle comment submission
+function submitComment(event) {
+  event.preventDefault();
+  
+  // Get the comment input value
+  var commentInput = document.getElementById('comment-input');
+  var commentText = commentInput.value;
+  
+  // Create a new comment element
+  var newComment = document.createElement('div');
+  newComment.className = 'comment';
+  newComment.textContent = commentText;
+  
+  // Get the comments list
+  var commentsList = document.getElementById('comments-list');
+  
+  // Insert the new comment at the beginning of the comments list
+  commentsList.insertBefore(newComment, commentsList.firstChild);
+  
+  // Add a line break after the new comment
+  var lineBreak = document.createElement('hr');
+  commentsList.insertBefore(lineBreak, commentsList.firstChild);
+  
+  // Clear the comment input field
+  commentInput.value = '';
 }
 
-submitButtonBH.addEventListener('click', checkAnswerBH);
-
-displayQuestionBH();
+// Add event listener to the comment form
+var commentForm = document.getElementById('comment-form');
+commentForm.addEventListener('submit', submitComment);
 
   </script>
   

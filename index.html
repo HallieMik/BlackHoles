@@ -10,6 +10,7 @@
         <title>MathJax Example</title>
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
         <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        <link rel="stylesheet" href="fonts/fontawesome/css/all.css">
 
     </head>      
 <body>
@@ -23,6 +24,17 @@
     <div class="star7"></div>
   </div>
   <header>
+    <div class="social-media">
+        <a href="#" class="social-icon">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="#" class="social-icon">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a href="#" class="social-icon">
+          <i class="fab fa-instagram"></i>
+        </a>
+    </div>           
     <h1 class="title">Celestial Devourers</h1>
     <div class="search-bar">
       <input type="text" id="search-input" placeholder="Search...">
@@ -41,6 +53,7 @@
     </ul>
   </nav>
   <main>
+    <p>Try to spot the Big Dipper!</p>
     <section id="introduction">
       <h2>Introduction</h2>
       <p>Before I set the stage with special and general relativity for why black holes exist and have such strange properties, I will take a moment to indulge you in these delightful extraterrestrial curiosities.<br> <br>So many of you have heard of black holes and are understandably impressed. They are key to star formation within galaxies and we have one at the center of our galaxy. These monsters of the cosmos have such a high concentration of mass that anything going by too close will be pulled in by the curvature of space there. Wait did I just say curvature of space and imply that mass causes it? <br> <br>Have no worries...<br>we will soon fill in all these details as the story of black holes unfolds.</p>
@@ -49,6 +62,7 @@
         <img src="images/bh8.jpg" alt="">
         <div class="caption">Black Hole visualized as a monster. Center of eye represents black hole and white of eye represents plasma.</div>
       </div> 
+      <p>(On phone/iPad press image for description. On Desktop hover image for description.)</p>
       <h3>Black Holes Even Eat Light</h3>
       <p>
         I also said that anything going by too close will be pulled in, and what is crazy is that this even includes light.  Let’s take a minute to put that into perspective and understand light. <br> <br>Usually, you shine a flashlight on something, say a red apple, and some light gets absorbed and in this case the red light bounces back to your eye and you see the apple. <br> <br>Well for a black hole, if you shine a flashlight at it, the light crosses over the event horizon, which acts as a point of no return, and the light never comes back to your eyes. 
@@ -90,7 +104,16 @@
       <p>
         Due to time slowing down (the distance between ticks of time increasing) as you travel faster, if two identical twins were on earth, and one left in a high speed flying machine and traveled a while and came back (assuming instantaneous deceleration and acceleration for simplicity), upon returning, the twin that traveled would appear younger than the twin that stayed.<br> <br>So the takeaway so far is that time isn't fixed, but rather a strange coordinate that depends on your speed through the x, y, and z coordinates. We can represent space and time as a fabric of sorts and this prepares us to begin to understand curvature of space. <br> <br> <br> <br> <br> <br>
       </p>
+    <h3>Test your knowledge! (refresh to redo)</h3>
+    <div class="quiz-container" id="quiz-container-sr">
+        <h2>Special Relativity Quiz</h2>
+        <div class="question" id="question-sr"></div>
+        <div class="options" id="options-sr"></div>
+        <button id="submit-sr">Submit</button>
+        <div class="result" id="result-sr"></div>
+      </div>
     </section>
+
     <section id="curvature">
       <h2>Curvature</h2>
       <p>So that’s pretty crazy… that time changes based on how fast you move, but Einstein took things a step further with general relativity. <br> <br>First imaging yourself jumping off a diving board. When you are up high in the air, do you keep going up... <br>no something pulls you down - gravity.<br> <br>You appear to take a nice parabola from the leap until you plop in the water. We take it for granted, but here’s the stumper… <br>what causes gravity? <br>Well before we answer that we've got to understand curvature of space.</p>
@@ -156,7 +179,16 @@
         </script>
         <br> <br> <br> <br> <br> <br>
       </p>
+      <h3>Test your knowledge! (refresh to redo)</h3>
+      <div class="quiz-container" id="quiz-container-gk">
+        <h2>Curvature Quiz</h2>
+        <div class="question" id="question-gk"></div>
+        <div class="options" id="options-gk"></div>
+        <button id="submit-gk">Submit</button>
+        <div class="result" id="result-gk"></div>
+      </div>
     </section>
+
     <section id="general-relativity">
       <h2>General Relativity</h2>
       <p>But why is this space time surface curved in the first place? What Einstein realized is that the stuff we're made of and the stuff the planets are made of - mass - is all a form of energy that bends space.</p>
@@ -179,6 +211,14 @@
       <p>
         All in all, while it appears that you are traveling in a straight line in the \(\tau\) direction (only through your proper time) from the frame where you are at rest, when you work out what another observer sees you doing, they will see that you are traveling on the curve of space (the geodesic) similarly to how a plane circling earth moves along the great circle, but appears from its frame to move straight.<br> <br>Where things get even crazier is that time slows down due to curved space... <br>but we'll talk about that more in a bit.<br> <br>So in conclusion when you travel fast or near space that is curved due to the presence of energy or mass, time slows down. Gravity is caused by mass or any other type of energy bending space and affecting what path is straight for you. <br> <br> <br> <br> <br> <br>
       </p>
+      <h3>Test your knowledge! (refresh to redo)</h3>
+      <div class="quiz-container" id="quiz-container-gr">
+        <h2>General Relativity Quiz</h2>
+        <div class="question" id="question-gr"></div>
+        <div class="options" id="options-gr"></div>
+        <button id="submit-gr">Submit</button>
+        <div class="result" id="result-gr"></div>
+      </div>
     </section>
     <section id="energy">
       <h2>Energy</h2>
@@ -214,8 +254,9 @@
           <li><strong>Newton's Gravitational Constant:</strong> \(G\)</li>
           <li><strong>Stress-Energy Tensor:</strong> \(T_{\mu \nu}\)</li>
         </ul>
-        <br> <br> <br> <br> <br> <br>
+        <br> <br> 
       </p>
+      
     </section>
     <section id="black-holes">
       <h2>Black Holes</h2>
@@ -276,6 +317,14 @@
                 <div class="caption">LIGO's perpendicular arms. Laser path in red. The boxes represent mirrors. The detector is shown as a circle.</div>
             </div> 
             <p><br> <br> <br> <br> <br> <br></p>
+      <h3>Test your knowledge! (refresh to redo)</h3>
+      <div class="quiz-container" id="quiz-container-bh">
+        <h2>Black Holes Quiz</h2>
+        <div class="question" id="question-bh"></div>
+        <div class="options" id="options-bh"></div>
+        <button id="submit-bh">Submit</button>
+        <div class="result" id="result-bh"></div>
+      </div>
     </section>
 
     <section id="conclusions">
@@ -367,10 +416,429 @@
     });
   </script>
   
-  
-  
-  
-  
+  <script> // might not be working. Idk why
+   // Function to open Facebook sharing dialog
+    function shareOnFacebook() {
+    var url = encodeURIComponent(window.location.href);
+    window.open('https://www.facebook.com/sharer/sharer.php?u=' + url, '_blank');
+    }
+
+    // Function to open Twitter sharing dialog
+    function shareOnTwitter() {
+    var url = encodeURIComponent(window.location.href);
+    window.open('https://twitter.com/intent/tweet?url=' + url, '_blank');
+    }
+
+    // Function to open LinkedIn sharing dialog
+    function shareOnLinkedIn() {
+    var url = encodeURIComponent(window.location.href);
+    window.open('https://www.linkedin.com/shareArticle?url=' + url, '_blank');
+    }
+
+    // Attach click event listeners to the share buttons
+    document.querySelector('.facebook').addEventListener('click', shareOnFacebook);
+    document.querySelector('.twitter').addEventListener('click', shareOnTwitter);
+    document.querySelector('.linkedin').addEventListener('click', shareOnLinkedIn);
+  </script>
+
+  <script>
+var quizContainerSR = document.getElementById('quiz-container-sr');
+var questionElementSR = document.getElementById('question-sr');
+var optionsElementSR = document.getElementById('options-sr');
+var submitButtonSR = document.getElementById('submit-sr');
+var resultElementSR = document.getElementById('result-sr');
+
+var quizContainerGK = document.getElementById('quiz-container-gk');
+var questionElementGK = document.getElementById('question-gk');
+var optionsElementGK = document.getElementById('options-gk');
+var submitButtonGK = document.getElementById('submit-gk');
+var resultElementGK = document.getElementById('result-gk');
+
+var quizContainerGR = document.getElementById('quiz-container-gr');
+var questionElementGR = document.getElementById('question-gr');
+var optionsElementGR = document.getElementById('options-gr');
+var submitButtonGR = document.getElementById('submit-gr');
+var resultElementGR = document.getElementById('result-gr');
+
+var quizContainerBH = document.getElementById('quiz-container-bh');
+var questionElementBH = document.getElementById('question-bh');
+var optionsElementBH = document.getElementById('options-bh');
+var submitButtonBH = document.getElementById('submit-bh');
+var resultElementBH = document.getElementById('result-bh');
+
+var quizQuestionsSR = [
+  {
+    question: 'What happens to time as you travel faster?',
+    options: ['It speeds up', 'It slows down', 'It remains the same', 'It stops'],
+    answer: 1
+  },
+  {
+    question: 'Special Relativity is based on the constant speed of which?',
+    options: ['Sound', 'Gravity', 'Light', 'Electricity'],
+    answer: 2
+  },
+  {
+    question: 'According to Special Relativity, if you observe someone moving at a high speed relative to you, their time appears to be:',
+    options: ['Faster', 'Slower', 'Unaffected', 'Stopped'],
+    answer: 1
+  },
+  {
+    question: 'Which paradox arises from time dilation in Special Relativity?',
+    options: ['Mirror Paradox', 'Light Paradox', 'Velocity Paradox', 'Twin Paradox'],
+    answer: 3
+  },
+  {
+    question: 'Special Relativity depends on the speed of light being the same in all reference frames.',
+    options: ['True', 'False'],
+    answer: 0
+  }
+];
+
+var quizQuestionsGK = [
+  {
+    question: "What does a geodesic along a curved space-time surface represent?",
+    options: ["Path of energy", "Path of a rocket ship", "Path of light", "Any of the above"],
+    answer: 3
+  },
+  {
+    question: "What is the speed of light denoted by?",
+    options: ["v", "g", "c", "τ"],
+    answer: 2
+  },
+  {
+    question: "What is the Metric Tensor used to describe?",
+    options: ["Curvature of space", "Mass", "Velocity magnitude", "Christoffel Symbols"],
+    answer: 0
+  },
+  {
+    question: "What is the Minkowski Metric used for?",
+    options: ["General Relativity", "Special Relativity", "Curvature of space", "Christoffel Symbols"],
+    answer: 1
+  },
+];
+
+var quizQuestionsGR = [
+  {
+    question: "According to General Relativity, what causes gravity?",
+    options: ["Curvature of space-time", "Force", "Velocity", "Wind"],
+    answer: 0
+  },
+  {
+    question: "What does the Einstein field equations relate?",
+    options: ["The curvature of space to the presence of energy and mass", "The motion of planets to the forces", "The behavior of light to the size of photons"],
+    answer: 0
+  },
+];
+
+var quizQuestionsBH = [
+  {
+    question: "What is a black hole?",
+    options: ["A region of space with extremely high temperature", "A collapsed star with infinite density", "An object with a fixed mass", "A source of unlimited energy"],
+    answer: 1
+  },
+  {
+    question: "What is the boundary of a black hole called?",
+    options: ["Event horizon", "Singularity", "Photon sphere", "Ergosphere"],
+    answer: 0
+  },
+  {
+    question: "How does time behave at the event horizon of a black hole?",
+    options: ["It slows down", "It speeds up", "It stops", "It doesn't change"],
+    answer: 2
+  },
+  {
+    question: "Which phenomenon is predicted by General Relativity and confirmed by the observation of gravitational waves?",
+    options: ["Time dilation", "Black holes", "Dark energy", "Quantum entanglement"],
+    answer: 1
+  },
+  {
+    question: "What is the term for the point of infinite density within a black hole?",
+    options: ["Event horizon", "Singularity", "Time", "Hawking Radiation"],
+    answer: 1
+  },
+  {
+    question: "BONUS: What is the name of the black hole at the center of our galaxy?",
+    options: ["Andromeda", "Sombrero", "Messier 87", "Sagittarius A*"],
+    answer: 3
+  },
+];
+
+var currentQuestionIndexSR = 0;
+var scoreSR = 0;
+var currentQuizSR = quizQuestionsSR;
+
+var currentQuestionIndexGK = 0;
+var scoreGK = 0;
+var currentQuizGK = quizQuestionsGK;
+
+var currentQuestionIndexGR = 0;
+var scoreGR = 0;
+var currentQuizGR = quizQuestionsGR;
+
+var currentQuestionIndexBH = 0;
+var scoreBH = 0;
+var currentQuizBH = quizQuestionsBH;
+
+function displayQuestionSR() {
+  var currentQuestion = currentQuizSR[currentQuestionIndexSR];
+  questionElementSR.textContent = currentQuestion.question;
+
+  optionsElementSR.innerHTML = '';
+  for (var i = 0; i < currentQuestion.options.length; i++) {
+    var optionLabel = document.createElement('label');
+    var optionInput = document.createElement('input');
+    optionInput.type = 'radio';
+    optionInput.name = 'quiz-option-sr';
+    optionInput.value = i;
+
+    optionLabel.appendChild(optionInput);
+    optionLabel.appendChild(document.createTextNode(currentQuestion.options[i]));
+    optionsElementSR.appendChild(optionLabel);
+  }
+}
+
+function checkAnswerSR() {
+  var selectedOption = document.querySelector('input[name="quiz-option-sr"]:checked');
+
+  if (!selectedOption) {
+    return; // No answer selected
+  }
+
+  var selectedAnswer = parseInt(selectedOption.value);
+
+  var currentQuestion = currentQuizSR[currentQuestionIndexSR];
+  var correctAnswer = currentQuestion.answer;
+
+  if (selectedAnswer === correctAnswer) {
+    scoreSR++;
+    selectedOption.parentNode.classList.add('correct');
+  } else {
+    selectedOption.parentNode.classList.add('incorrect');
+  }
+
+  submitButtonSR.textContent = 'Next Question';
+  submitButtonSR.removeEventListener('click', checkAnswerSR);
+  submitButtonSR.addEventListener('click', nextQuestionSR);
+}
+
+function nextQuestionSR() {
+  currentQuestionIndexSR++;
+
+  if (currentQuestionIndexSR >= quizQuestionsSR.length) {
+    quizContainerSR.style.display = 'none';
+    resultElementSR.textContent = 'Quiz completed! Your score: ' + scoreSR + '/' + quizQuestionsSR.length;
+    resultElementSR.style.display = 'block';
+  } else {
+    displayQuestionSR();
+    submitButtonSR.textContent = 'Submit';
+    optionsElementSR.querySelectorAll('.correct, .incorrect').forEach(function (option) {
+      option.classList.remove('correct', 'incorrect');
+    });
+    submitButtonSR.removeEventListener('click', nextQuestionSR);
+    submitButtonSR.addEventListener('click', checkAnswerSR);
+  }
+}
+
+submitButtonSR.addEventListener('click', checkAnswerSR);
+
+displayQuestionSR();
+
+
+function displayQuestionGK() {
+  var currentQuestion = currentQuizGK[currentQuestionIndexGK];
+  questionElementGK.textContent = currentQuestion.question;
+
+  optionsElementGK.innerHTML = '';
+  for (var i = 0; i < currentQuestion.options.length; i++) {
+    var optionLabel = document.createElement('label');
+    var optionInput = document.createElement('input');
+    optionInput.type = 'radio';
+    optionInput.name = 'quiz-option-gk';
+    optionInput.value = i;
+
+    optionLabel.appendChild(optionInput);
+    optionLabel.appendChild(document.createTextNode(currentQuestion.options[i]));
+    optionsElementGK.appendChild(optionLabel);
+  }
+}
+
+function checkAnswerGK() {
+  var selectedOption = document.querySelector('input[name="quiz-option-gk"]:checked');
+
+  if (!selectedOption) {
+    return; // No answer selected
+  }
+
+  var selectedAnswer = parseInt(selectedOption.value);
+
+  var currentQuestion = currentQuizGK[currentQuestionIndexGK];
+  var correctAnswer = currentQuestion.answer;
+
+  if (selectedAnswer === correctAnswer) {
+    scoreGK++;
+    selectedOption.parentNode.classList.add('correct');
+  } else {
+    selectedOption.parentNode.classList.add('incorrect');
+  }
+
+  submitButtonGK.textContent = 'Next Question';
+  submitButtonGK.removeEventListener('click', checkAnswerGK);
+  submitButtonGK.addEventListener('click', nextQuestionGK);
+}
+
+function nextQuestionGK() {
+  currentQuestionIndexGK++;
+
+  if (currentQuestionIndexGK >= quizQuestionsGK.length) {
+    quizContainerGK.style.display = 'none';
+    resultElementGK.textContent = 'Quiz completed! Your score: ' + scoreGK + '/' + quizQuestionsGK.length;
+    resultElementGK.style.display = 'block';
+  } else {
+    displayQuestionGK();
+    submitButtonGK.textContent = 'Submit';
+    optionsElementGK.querySelectorAll('.correct, .incorrect').forEach(function (option) {
+      option.classList.remove('correct', 'incorrect');
+    });
+    submitButtonGK.removeEventListener('click', nextQuestionGK);
+    submitButtonGK.addEventListener('click', checkAnswerGK);
+  }
+}
+
+submitButtonGK.addEventListener('click', checkAnswerGK);
+
+displayQuestionGK();
+
+
+function displayQuestionGR() {
+  var currentQuestion = currentQuizGR[currentQuestionIndexGR];
+  questionElementGR.textContent = currentQuestion.question;
+
+  optionsElementGR.innerHTML = '';
+  for (var i = 0; i < currentQuestion.options.length; i++) {
+    var optionLabel = document.createElement('label');
+    var optionInput = document.createElement('input');
+    optionInput.type = 'radio';
+    optionInput.name = 'quiz-option-gr';
+    optionInput.value = i;
+
+    optionLabel.appendChild(optionInput);
+    optionLabel.appendChild(document.createTextNode(currentQuestion.options[i]));
+    optionsElementGR.appendChild(optionLabel);
+  }
+}
+
+function checkAnswerGR() {
+  var selectedOption = document.querySelector('input[name="quiz-option-gr"]:checked');
+
+  if (!selectedOption) {
+    return; // No answer selected
+  }
+
+  var selectedAnswer = parseInt(selectedOption.value);
+
+  var currentQuestion = currentQuizGR[currentQuestionIndexGR];
+  var correctAnswer = currentQuestion.answer;
+
+  if (selectedAnswer === correctAnswer) {
+    scoreGR++;
+    selectedOption.parentNode.classList.add('correct');
+  } else {
+    selectedOption.parentNode.classList.add('incorrect');
+  }
+
+  submitButtonGR.textContent = 'Next Question';
+  submitButtonGR.removeEventListener('click', checkAnswerGR);
+  submitButtonGR.addEventListener('click', nextQuestionGR);
+}
+
+function nextQuestionGR() {
+  currentQuestionIndexGR++;
+
+  if (currentQuestionIndexGR >= quizQuestionsGR.length) {
+    quizContainerGR.style.display = 'none';
+    resultElementGR.textContent = 'Quiz completed! Your score: ' + scoreGR + '/' + quizQuestionsGR.length;
+    resultElementGR.style.display = 'block';
+  } else {
+    displayQuestionGR();
+    submitButtonGR.textContent = 'Submit';
+    optionsElementGR.querySelectorAll('.correct, .incorrect').forEach(function (option) {
+      option.classList.remove('correct', 'incorrect');
+    });
+    submitButtonGR.removeEventListener('click', nextQuestionGR);
+    submitButtonGR.addEventListener('click', checkAnswerGR);
+  }
+}
+
+submitButtonGR.addEventListener('click', checkAnswerGR);
+
+displayQuestionGR();
+
+
+function displayQuestionBH() {
+  var currentQuestion = currentQuizBH[currentQuestionIndexBH];
+  questionElementBH.textContent = currentQuestion.question;
+
+  optionsElementBH.innerHTML = '';
+  for (var i = 0; i < currentQuestion.options.length; i++) {
+    var optionLabel = document.createElement('label');
+    var optionInput = document.createElement('input');
+    optionInput.type = 'radio';
+    optionInput.name = 'quiz-option-bh';
+    optionInput.value = i;
+
+    optionLabel.appendChild(optionInput);
+    optionLabel.appendChild(document.createTextNode(currentQuestion.options[i]));
+    optionsElementBH.appendChild(optionLabel);
+  }
+}
+
+function checkAnswerBH() {
+  var selectedOption = document.querySelector('input[name="quiz-option-bh"]:checked');
+
+  if (!selectedOption) {
+    return; // No answer selected
+  }
+
+  var selectedAnswer = parseInt(selectedOption.value);
+
+  var currentQuestion = currentQuizBH[currentQuestionIndexBH];
+  var correctAnswer = currentQuestion.answer;
+
+  if (selectedAnswer === correctAnswer) {
+    scoreBH++;
+    selectedOption.parentNode.classList.add('correct');
+  } else {
+    selectedOption.parentNode.classList.add('incorrect');
+  }
+
+  submitButtonBH.textContent = 'Next Question';
+  submitButtonBH.removeEventListener('click', checkAnswerBH);
+  submitButtonBH.addEventListener('click', nextQuestionBH);
+}
+
+function nextQuestionBH() {
+  currentQuestionIndexBH++;
+
+  if (currentQuestionIndexBH >= quizQuestionsBH.length) {
+    quizContainerBH.style.display = 'none';
+    resultElementBH.textContent = 'Quiz completed! Your score: ' + scoreBH + '/' + quizQuestionsBH.length;
+    resultElementBH.style.display = 'block';
+  } else {
+    displayQuestionBH();
+    submitButtonBH.textContent = 'Submit';
+    optionsElementBH.querySelectorAll('.correct, .incorrect').forEach(function (option) {
+      option.classList.remove('correct', 'incorrect');
+    });
+    submitButtonBH.removeEventListener('click', nextQuestionBH);
+    submitButtonBH.addEventListener('click', checkAnswerBH);
+  }
+}
+
+submitButtonBH.addEventListener('click', checkAnswerBH);
+
+displayQuestionBH();
+
+  </script>
   
   </body>
   

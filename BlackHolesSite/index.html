@@ -11,6 +11,73 @@
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
         <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 
+                .sudoku-container {
+            display: grid;
+            grid-template-columns: repeat(9, 40px); /* 9 equal-width columns */
+            grid-template-rows: repeat(9, 40px); /* 9 equal-height rows */
+            margin: 20px auto;
+            border: 2px solid #000;
+            width: 360px; /* fixed width to prevent right-side space */
+        }
+        
+        .sudoku-cell:focus {
+            border: 2px solid #007bff;
+        }
+        
+        .given {
+            background-color: #ddd;
+            font-weight: bold;
+        }
+        
+        
+        /* Timer */
+        #incorrect-attempts, #timer, #score, #tips-button {
+            margin: 10px;
+            font-size: 18px;
+        }
+
+        
+        button {/* For Hint button and stuff */
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        
+        #hint-button:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+        
+        #score {
+            color: green;
+        }
+
+        .number-selector {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .number-button { /* Highlight number buttons */
+            width: 40px;
+            height: 40px;
+            font-size: 18px;
+            margin: 5px;
+            background-color: #f4f4f9;
+            border: 1px solid #ccc;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .number-button:hover {
+            background-color: #ddd;
+        }
+
+        .highlighted {
+            background-color: yellow !important;
+        }
+        </style>
     </head>      
 <body>
    <div class="stars">
@@ -40,6 +107,26 @@
       <li><a href="#conclusions">Conclusions</a></li>
     </ul>
   </nav>
+    <h1>Sudoku Showdown</h1>
+    <div id="score"></div>
+    <div id="timer">Time: 0s</div>
+    <div id="incorrect-attempts">Mistakes: 0</div>
+    <div id="sudoku-board" class="sudoku-container"></div>
+    <div class="number-selector">
+        <div id="tips-button">Select:</div>
+        <button class="number-button" data-number="1">1</button>
+        <button class="number-button" data-number="2">2</button>
+        <button class="number-button" data-number="3">3</button>
+        <button class="number-button" data-number="4">4</button>
+        <button class="number-button" data-number="5">5</button>
+        <button class="number-button" data-number="6">6</button>
+        <button class="number-button" data-number="7">7</button>
+        <button class="number-button" data-number="8">8</button>
+        <button class="number-button" data-number="9">9</button>
+    </div>
+    <button id="draft-button">Draft</button>
+    <button id="hint-button">Hint</button>
+    <button id="restart-button">Restart</button>
   <main>
     <section id="introduction">
       <h2>Introduction</h2>

@@ -1,17 +1,24 @@
+
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Black Holes Educational Website</title>
-        <link rel="stylesheet" href="styles.css">
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        <meta charset="UTF-8">
-        <title>MathJax Example</title>
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-        <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sudoku Showdown</title>
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f9;
+        }
 
-                .sudoku-container {
+        h1 { /* Sudoku Title */
+            margin-top: 20px;
+            color: #333;
+        }
+
+        .sudoku-container {
             display: grid;
             grid-template-columns: repeat(9, 40px); /* 9 equal-width columns */
             grid-template-rows: repeat(9, 40px); /* 9 equal-height rows */
@@ -77,36 +84,10 @@
         .highlighted {
             background-color: yellow !important;
         }
-        </style>
-    </head>      
+    </style>
+
+</head>
 <body>
-   <div class="stars">
-    <div class="star1"></div>
-    <div class="star2"></div>
-    <div class="star3"></div>
-    <div class="star4"></div>
-    <div class="star5"></div>
-    <div class="star6"></div>
-    <div class="star7"></div>
-  </div>
-  <header>
-    <h1 class="title">Celestial Devourers</h1>
-    <div class="search-bar">
-      <input type="text" id="search-input" placeholder="Search...">
-      <button type="button" id="search-button">&#128269;</button>
-    </div>
-  </header>    
-  <nav>
-    <ul>
-      <li><a href="#introduction">Introduction</a></li>
-      <li><a href="#special-relativity">Special Relativity</a></li>
-      <li><a href="#curvature">Curvature</a></li>
-      <li><a href="#general-relativity">General Relativity</a></li>
-      <li><a href="#energy">Energy</a></li>
-      <li><a href="#black-holes">Black Holes</a></li>
-      <li><a href="#conclusions">Conclusions</a></li>
-    </ul>
-  </nav>
     <h1>Sudoku Showdown</h1>
     <div id="score"></div>
     <div id="timer">Time: 0s</div>
@@ -127,339 +108,393 @@
     <button id="draft-button">Draft</button>
     <button id="hint-button">Hint</button>
     <button id="restart-button">Restart</button>
-  <main>
-    <section id="introduction">
-      <h2>Introduction</h2>
-      <p>Before I set the stage with special and general relativity for why black holes exist and have such strange properties, I will take a moment to indulge you in these delightful extraterrestrial curiosities.<br> <br>So many of you have heard of black holes and are understandably impressed. They are key to star formation within galaxies and we have one at the center of our galaxy. These monsters of the cosmos have such a high concentration of mass that anything going by too close will be pulled in by the curvature of space there. Wait did I just say curvature of space and imply that mass causes it? <br> <br>Have no worries...<br>we will soon fill in all these details as the story of black holes unfolds.</p>
-      <!-- <img src="images/bh8.jpg" alt="Black Hole visualized as a monster. Center of eye represents black hole and white of eye represents plasma."> -->
-      <div class="image-container">
-        <img src="images/bh8.jpg" alt="">
-        <div class="caption">Black Hole visualized as a monster. Center of eye represents black hole and white of eye represents plasma.</div>
-      </div> 
-      <h3>Black Holes Even Eat Light</h3>
-      <p>
-        I also said that anything going by too close will be pulled in, and what is crazy is that this even includes light.  Let’s take a minute to put that into perspective and understand light. <br> <br>Usually, you shine a flashlight on something, say a red apple, and some light gets absorbed and in this case the red light bounces back to your eye and you see the apple. <br> <br>Well for a black hole, if you shine a flashlight at it, the light crosses over the event horizon, which acts as a point of no return, and the light never comes back to your eyes. 
-      </p> 
-      <div class="image-container">
-        <img src="images/apple.jpg" alt="">
-        <div class="caption">Light hitting red apple and making it visible.</div>
-      </div> 
-      <h3>Photo of Black Hole</h3>
-      <p>
-        So now let’s have a look at these images of black holes and see why we know they’re a black hole and not just a smudge of stars.
-      </p>
-      <div class="image-container">
-        <img src="images/Real.png" alt="">
-        <div class="caption">Simulation and Captured Black Hole.</div>
-      </div> 
-      <p>
-         If we look at this dark center we see that this is what is inside the event horizon. The light never bounces back to our telescope, but rather it gets sucked into the black hole. <br> <br>Meanwhile this ring of orange we see is from particles accelerating so fast they become a plasma - like when you microwave a grape - and emit radio waves that the telescope collects. <br> <br>Radio waves are on the electromagnetic spectrum with visible light and microwaves and uv light. They have a much longer wavelength and this gets picked up by radio receivers all around the world and computers combine it all together into this beautiful image of a black hole. <br> <br> <br> <br> <br> <br>
-      </p>
-    </section>
-    <section id="special-relativity">
-      <h2>Special Relativity</h2>
-      <p>So before we get into the madness of curved space and general relativity, let's talk about special relativity and how Einstein changed our understanding of space and time. First, take a look at the nearest clock in your room that isn't your phone. <br> <br>What I’m about to say will sound crazy, but if you and your smartphone clock were to jump aboard a super fast spaceship and travel in circles around the earth and come back, the clock in your room may say 6:00 when your smartphone says 5:50. <br> <br>As you travel faster time slows down and this counter intuitive realization comes from scientists’ realization that light always has the same speed.</p>
-      <h3>As You Travel Faster, Time Slows Down</h3>
-      <p>
-        So how could we arrive at such a crazy result of time slowing down when you speed up? <br>Well, usually when you are in the back of a moving truck and toss a baseball, from land the baseball appears to have added the speed of the truck. <br> <br>However it has been observed that light stays the speed of light even in this case. Since it is the same speed in the truck where it covers more distance and out of the truck where it covers less distance, then the distance between each second must be larger for the light on the truck so that it keeps the same observed speed.
-      </p>
-      <h3>Quick Math</h3>
-      <p>
-        To find out how much time slows down, let's make this a little more precise and do some back-of-the-napkin math...<br> <br>Let's start with the familiar non-special relativity case. If you observe a man in a clear train holding a ball going by at velocity \(v\), and the man tosses the ball forward with velocity \(u\), the observed velocity of the ball will be \(v+u\). <br> <br>However, after running multiple precise experiments, we have observed that light does not follow these same rules. When you are in a train traveling at \(v\) and you light a candle with light traveling at \(c\), the speed of light in the forward direction is \(c\), not \(c+v\). This constant speed of light is the basis for the effects of Special Relativity. <br> <br>This limit of the speed of light leads to another peculiar result. Let's say you are sitting in a tree watching a woman in a clear train passing below you. There is a mirror on the inner side of the train, and the woman sits across from the mirror, perpendicular to the path the train is traveling. <br> <br>The woman lights a candle, and from your perspective, the light from the candle takes a path of \(v\) to the mirror and back to the woman, traveling at the speed of light. From her perspective, the light traveled in a straight path to the mirror and back at the speed of \(c\). <br> <br>Both of you observe the light to have the same speed, but you observe the light to have traveled a further distance (\(v\) path versus straight). Since velocity equals \(\frac{{\text{{position}}}}{{\text{{time}}}}\), time equals \(\frac{{\text{{position}}}}{{\text{{velocity}}}}\). The position/velocity (which equals position/\(c\)) observed for the light is larger for you than it is for the woman in the train. Therefore, we see that less time has passed for her compared to you. <br> <br>We can see by geometry that \(t'\) (her time in the moving frame) \(= \gamma \times t\) (your time in the stationary frame), where \[\gamma = \frac{1}{\sqrt{1 - \left(\frac{v}{c}\right)^2}}\]<br> <br>Derivation: 
-        </p>
-        <div>
-            <!-- Paste the YouTube embed code here -->
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/ZxRmNIWPjYk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-        </div>
-        <p>We can see that for velocity approaching the speed of light, \(\gamma\) approaches \(1/\) almost 0, which is a large number (meaning that the 1 second of time that passes for the woman in the moving train is larger than your 1 second of time, indicating that they are experiencing less time passing). Meanwhile, for the small velocities of everyday life, \(\gamma\) is 1 (and 1 second is the same for both observers).
-      </p>
-      <h3>Twin Paradox</h3>
-      <p>
-        Due to time slowing down (the distance between ticks of time increasing) as you travel faster, if two identical twins were on earth, and one left in a high speed flying machine and traveled a while and came back (assuming instantaneous deceleration and acceleration for simplicity), upon returning, the twin that traveled would appear younger than the twin that stayed.<br> <br>So the takeaway so far is that time isn't fixed, but rather a strange coordinate that depends on your speed through the x, y, and z coordinates. We can represent space and time as a fabric of sorts and this prepares us to begin to understand curvature of space. <br> <br> <br> <br> <br> <br>
-      </p>
-    </section>
-    <section id="curvature">
-      <h2>Curvature</h2>
-      <p>So that’s pretty crazy… that time changes based on how fast you move, but Einstein took things a step further with general relativity. <br> <br>First imaging yourself jumping off a diving board. When you are up high in the air, do you keep going up... <br>no something pulls you down - gravity.<br> <br>You appear to take a nice parabola from the leap until you plop in the water. We take it for granted, but here’s the stumper… <br>what causes gravity? <br>Well before we answer that we've got to understand curvature of space.</p>
-      <div class="image-container">
-        <img src="images/bh5.jpg" alt="">
-        <div class="caption">AI visualization of curved space near black holes.</div>
-      </div> 
-      <p>
-        Let’s imagine a balloon and sharpie. Imagine you draw a straight line on this balloon but since the balloon is round the line looks curved.<br> <br>Building on the concept of curvature, if you were to trace on a globe an airplane's path around the Earth, it follows a circle (called the great circle), which is basically the straight line analog of Euclidean space within spherical trigonometry.<br> <br>If you have been in a plane, you may recall that, while you were within the plane, you could imagine that you are stationary and the Earth was what was flying by.<br> <br>Similarly, if you’re on a random planet, you can imagine that you are stationary (moving only through time) and everything else is flying by. As you saw from the section on special relativity, as you travel faster, time slows down, (aka there is more time between each tick on a clock). So, since you are moving relative to other planets, you can just call your time proper time &tau;. Due to special relativity, this will vary between objects of different speeds.<br> <br>So now we can visualize a curved space-time surface of some sort, and you could trace a straight path along it with your finger as you did for the globe. A rocket ship could be travel along this geodesic.<br> <br>And from within the rocket, the rocket man may think he's stationary and the world is what is zooming by. He would see himself as still in x, y, z space and just moving through his "proper time" (which is in the direction in which you traced out his path).
-      </p>
-      <h3>c, the speed of light</h3>
-      <p>
-        So far, we have visualized the movement of apples, and other forms of mass through space-time. Light travels just through space and not through time and is has the speed c. Analogously, a stationary chair doesn't travel through space and travels through time with speed c. This speed c is important... we see that the mass travels through space-time with the speed of c.
-      </p>
-      <h3>Describing Curvature with Math</h3>
-      <p>
-        We see that in flat space with no force, an object travels with an unchanging velocity through space-time. If that flat space has slanted time and position coordinates, we can used an altered Pythagorean’s theorem to describe the velocity magnitude independent of the coordinate system. This altered Pythagorean’s theorem involves 4 numbers that go together in the Metric Tensor that describes the coordinates' curvature or slant.
-      </p>
-      <p>
-        Altered Pythagorean’s theorem:
-        <br>
-        <br>
-        <script type="math/tex">
-          (ds)^2 = g_{00}\, dx^0\, dx^0 + g_{01}\, dx^0\, dx^1 + g_{10}\, dx^1\, dx^0 + g_{11}\, dx^1\, dx^1
-        </script>
-      </p>
-      
-      <p>
-        The numbers \(g_{\mu \nu}\) end up being the components of the Metric Tensor. Using Einstein's vector notation and considering that the velocity magnitude is always the speed of light, we can rewrite this as:
-        <br>
-        <br>
-        <script type="math/tex">
-          c^2 = g_{\mu \nu}\, v^{\mu}\, v^{\nu}
-        </script>
-      </p>
-      <p>
-        If that flat space has curved time and position coordinates, we can describe the change in unit vector orientation along the object's path with Christoffel Symbols \(\Gamma^\alpha_{ \mu \nu}\), which we can get from the Metric Tensor. A group of Christoffel Symbols make a vector that describes how the unit vector orientation changes along the object's path with respect to the coordinates. For 2 dimensions, there are 8 Christoffel Symbols. We can then plug these Christoffel Symbols into a Geodesic Equation that tells us how the mass will continue in a straight path with the velocity magnitude of c, independent of the curvature of the lines defining the coordinate system.
-      </p>
-      <p>
-        Geodesic Equation:
-        <br>
-        <br>
-        <script type="math/tex">
-          \frac{{dv^\alpha}}{{d\tau}} = -\Gamma^\alpha_{ \mu \nu} v^\mu v^\nu
-        </script>
-      </p>
-      <div class="image-container">
-        <img src="images/move.jpg" alt="">
-        <div class="caption">Sketch showing that one indication of this curvature is that the orientation of a vector after a two-step movement differs depending on the order of those steps.</div>
-      </div>
-      <p>
-        If we look at free space, the Metric Tensor is simply \(c^2\) and -1 across the diagonal and zero in the off-diagonals. (This is called the Minkowski Metric and is used in Special Relativity). The Christoffel Symbols are all zero and the mass’ path is straight. However, we will need to represent space as curved, and one of the signatures of curvature in space is that if you move a vector one way and then the other, your ending orientation is different than if you did this in the opposite order.
-      </p>
-      <p>
-        Again using 2 dimensions (now imagining a curved surface), the Riemann curvature tensor describes this difference between the two end results using 16 (\(2^4\)) numbers (256 in the case of 4 dimensions) which can be found using the Christoffel Symbols. This giant tensor can be simplified into the Ricci Tensor of 4 numbers, which can be further simplified to the Ricci scalar representing how much parallel lines move apart or together based on the curvature.
-      </p>
-      <p>
-        Riemann curvature tensor:
-        <br>
-        <br>
-        <script type="math/tex">
-          R^\alpha_\beta{}_{\mu \nu} = \frac{d\Gamma^\alpha_{\beta \nu}}{dx^\mu} + \Gamma^\lambda_{\beta \nu} \Gamma^\alpha_{\lambda \mu} - \frac{d\Gamma^\alpha_{\beta \mu}}{dx^\nu} - \Gamma^\lambda_{\beta \mu} \Gamma^\alpha_{\lambda \nu}
-        </script>
-        <br> <br> <br> <br> <br> <br>
-      </p>
-    </section>
-    <section id="general-relativity">
-      <h2>General Relativity</h2>
-      <p>But why is this space time surface curved in the first place? What Einstein realized is that the stuff we're made of and the stuff the planets are made of - mass - is all a form of energy that bends space.</p>
-      <div class="image-container">
-        <img src="images/curved.jpg" alt="">
-        <div class="caption">Visualization of curved space and lines that travel along it and would be straight in the proper time frame.</div>
-      </div> 
-      <h3>Quick Math</h3>
-      <p>
-        To find out how mass and energy relate, let's do some back of the napkin math...<br> <br>First, we find the fundamental units of energy: \[ J = \text{Nm} = \left(\text{kg}\cdot\text{m/s}^2\right)\cdot\text{m} = \frac{\text{kg}\cdot\text{m}^2}{\text{s}^2} = \frac{\text{M}\cdot\text{L}^2}{\text{T}^2} \]<br> <br>Next, we use Buckingham Pi and variables of Energy, Mass, and \( c \) to see if there's a relationship.<br> <br>\[ E = \left(\frac{M \cdot L^2}{T^2}\right) = M \cdot \left(\frac{L}{T}\right)^2 = m \cdot c^2 \]<br> <br>We get the relationship that energy equals mass times the speed of light squared (a ton of energy is a tiny amount of mass).
-      </p>
-      <h3>What is gravity?</h3>
-      <p>
-        So you think you’re traveling straight like the path a sharpie traces on a balloon, but when you step back and look, you see that you took a curved path (because energy or mass bent space)… <br>in the case of jumping off a diving board, you took a curved path back to the earth. 
-      </p>
-      <div class="image-container">
-        <img src="images/curve2.jpg" alt="">
-        <div class="caption">Sketch of curved space near mass.</div>
-      </div> 
-      <p>
-        All in all, while it appears that you are traveling in a straight line in the \(\tau\) direction (only through your proper time) from the frame where you are at rest, when you work out what another observer sees you doing, they will see that you are traveling on the curve of space (the geodesic) similarly to how a plane circling earth moves along the great circle, but appears from its frame to move straight.<br> <br>Where things get even crazier is that time slows down due to curved space... <br>but we'll talk about that more in a bit.<br> <br>So in conclusion when you travel fast or near space that is curved due to the presence of energy or mass, time slows down. Gravity is caused by mass or any other type of energy bending space and affecting what path is straight for you. <br> <br> <br> <br> <br> <br>
-      </p>
-    </section>
-    <section id="energy">
-      <h2>Energy</h2>
-      <p>So mass which is a form of energy \((E=m \times c^2\)) causes curvature of space, but lets dig deeper into this concept of energy.</p>
-      <div class="image-container">
-        <img src="images/bh6.jpg" alt="">
-        <div class="caption">Visualization of an object falling down a tunnel and changing potential energy into kinetic energy.</div>
-      </div>
-      <p>
-        Forces may be more straight forward to understand. You can push on something and make it move. While forces are helpful to writing equations to describe the motion of objects, in many situations energy is a more effective tool to get the information you want. <br> <br>Energy is a quality that is conserved but often changes forms. When an object is moving it has kinetic energy which is \((1/2)mv^2\). This energy can go into friction (rubbing between the surfaces) which results in heat. When an object is up high it has potential energy (\(mgh\)) that turns into kinetic energy when the object is released.<br> <br>Furthermore, when you calculate kinetic energy of an object minus potential energy it's called the Lagrangian and you can use this as a tool. You can take the time derivative of the partial derivative of this with respect to one derivative of position variable and subtract the partial derivative with respect to that position variable. If you repeat this for every variable that is needed to define an objects position then you get the same equations of motion that you could get with force. <br> <br>While this sounds like more work, if you use a computer to do the tedious math for you, then you can use energy to get the equations of motion with much less manual rearranging.
-      </p>
-      <h3>Stress Energy Tensor</h3>
-      <p>
-        Now that that framework of understanding how a mass travels through space is established, we can generalize to how gas clouds, the electromagnetic field, dark energy, etc move through space. To do this we can treat everything as a form of energy and just focus on how energy moves through space.
-      </p>
-      <div class="image-container">
-        <img src="images/bh4.jpg" alt="">
-        <div class="caption">AI Black Hole.</div>
-      </div>
-      <p>
-        If in 2D you draw an infinitesimal control volume square around point, you can describe the energy flow with the flux through 2 sides (energy conservation gives you the other two sides). These two sides will have flux vectors that make the Energy-Momentum Tensor that describes how momentum is transferred along the different coordinates (energy traveling through time (Energy Density) versus space over time (Momentum Density) versus space (Pressure)).<br> <br>Generalizing from 2D to our 4D universe, this Stress-Energy Tensor contains 16 components. It has components for energy density, momentum density, pressure, and also viscosity (energy’s tendency to transfer motion to its surroundings). Of course the orientation of your control cube affects the values you get for each of these. When something small like an apple is near a black hole, we can neglect the energy of the apple and treat every component of the Energy-Momentum Tensor as 0. <br> <br>Now putting all these curvature and energy ideas together, we have discussed tools to describe and work with curved space such as the Ricci scalar and tensor (derived from the Christoffel Symbols), we have discussed using the Metric tensor to describe the curvature of space and how the Pythagorean Theorem is altered, and we have discussed using the Stress-Energy Tensor to look at how mass and other forms of energy move through space.<br> <br> Now we can use Einstein's Field equation (with the expansion of space added via a cosmological constant) to relate the presence of energy to the curvature of space. We can use this understanding of the curvature of space to understand how the energy continues in a straight path through the very space it bends.
 
-        \[
-        R_{\mu \nu} - \frac{1}{2}g_{\mu \nu} R + g_{\mu \nu} \Lambda = \frac{8\pi G}{c^4} T_{\mu \nu}
-        \]
-        
-        <ul>
-          <li><strong>Ricci Tensor:</strong> \(R_{\mu \nu}\)</li>
-          <li><strong>Ricci Scalar:</strong> \(R\)</li>
-          <li><strong>Metric Tensor:</strong> \(g_{\mu \nu}\)</li>
-          <li><strong>Cosmological Constant:</strong> \(\Lambda\)</li>
-          <li><strong>Speed of Light:</strong> \(c\)</li>
-          <li><strong>Newton's Gravitational Constant:</strong> \(G\)</li>
-          <li><strong>Stress-Energy Tensor:</strong> \(T_{\mu \nu}\)</li>
-        </ul>
-        <br> <br> <br> <br> <br> <br>
-      </p>
-    </section>
-    <section id="black-holes">
-      <h2>Black Holes</h2>
-      <p>So now we have all the concepts we need to talk about black holes. When the star runs out of nuclear fuel it can collapse under its own weight to become a black hole. The black hole forms as the supernova blows off extra mass and then some of the blown up mass is sucked back in. As for the black hole’s existence, once formed it can gain matter from its surroundings or other black holes or it could continue to loose particles via Hawking radiation until it is gone.</p>
-      <h3>Quick Math</h3>
-      <p>
-        To find out what scales of length and time might be relevant to black holes, let's do some back of the napkin math...
-        </p>
-        <p>
-        We can use Buckingham Pi to find relationships between relevant variables that can be very telling about our system. Say we have a black hole with mass similar to the mass of our sun (\(2 \times 10^{30}\) kg). Using the speed of light (\(3 \times 10^{8}\) m/s) and G (\(6.67 \times 10^{-11}\) m\(^3\)/kg \(\cdot\) s\(^2\)), we can rearrange our units to get units of length:
-        \[ L = \frac{L^3}{M \cdot T^2} \cdot \left(\frac{T}{L}\right)^2 \cdot M = \frac{G \cdot m}{c^2} \]
-        This gives us a length of about 1500 meters. Looking into the characteristic length, we find that it is the radius of the event horizon (Schwarzschild radius). As we discussed early on, beyond this radius, even light can't escape the black hole's gravitational well.
-        </p>
-        <p>
-        Next, we rearrange for units of time:
-        \[ T = \frac{(T/L)^3 \cdot L^3}{M \cdot T^2} \cdot M = \frac{G \cdot m}{c^3} \]
-        We get \(5 \times 10^{-6}\) s. Looking into this characteristic time, we find that this is the time it takes for an object to fall into the singularity of a black hole after crossing the event horizon.
-        </p>
-      <h3>Time Near A Black Hole</h3>
-      <p>
-        Time dilation near black holes is a really interesting topic so let’s take a minute to clarify and unpack it.
-      </p>
-      <div class="image-container">
-        <img src="images/bh7.jpg" alt="">
-        <div class="caption">Black Hole visualized as frozen clock.</div>
-      </div>
-      <p>
-        Let’s imagine you throw a clock at a black hole. Ignoring spaghettification, you will observe it ticking slower and slower as it gets closer to the black hole. Then when it reaches the event horizon, the clock will appear to be stopped. This is the equation that shows that:
-        </p>
-        
-        \[ \Delta t' = \Delta t \sqrt{1 - \frac{2GM}{rc^2}} \]
-        
-        <p>(Where \(\Delta t'\) is the distance between ticks of time near a black hole and \(\Delta t\) is the distance between ticks of time far from a black hole)</p>
-        <p>
-        But for those of you who like mysteries, time becomes a spatial dimension within the event horizon and we don’t really know how to interpret this. As you know, not even light escapes from inside the event horizon, so we wouldn’t see our clock inside the event horizon at all. Would it still not tick? <br> <br>Time becomes like space and gets a (+) in front of dt, and what this means is unclear. Another interesting piece of food for thought is that from the clock’s perspective, time is passing normally, and our time is what is sped up, basically to infinity, as it falls past the event horizon.
-        </p>
-        <p>
-        You may wonder how a black hole could form at all with time slowing to a halt for the supernova mass it's sucking in, so let's clarify this. While the mass that is sucked into the singularity might not be “aging” (like time didn’t pass for it as much as time passed for us watching it from afar), it still traveled through space into the black hole.
-        </p>
-        <h3>LIGO</h3>
-        <p>
-            The "traceless mass quadrupole moment" is a tensor that describes how mass is distributed in space-time. We have discussed how mass distribution affects the curvature of space, but what we haven't discussed is that when this tensor changes, it can send out ripples in space-time known as gravitational waves.
-            </p>
-            
-            <p>
-            Using conservation of energy, we can assume the energy from the gravitational waves comes from somewhere, but what is the amplitude of a gravitational wave proportional to? <br> <br>We know these waves are released during black hole merger events. During these events, the 0th moment (mass) is conserved, the 1st moment (\(md\)) is conserved since momentum is conserved. Therefore, the extra energy must come from the 2nd moment (\(md^2\)), which is known as the quadrupole moment.
-            </p>
-            
-            <p>
-            These waves can be detected using a very carefully calibrated measuring tool called LIGO. Along with the photograph, this is one of the ways we are reminded of the presence of black holes. We can watch the simulation or listen to the sound, but essentially, the gravitational waves released when black holes merge increase in a sort of chirp (<a href="https://www.ligo.org/detections/GW150914.php">link</a>).
-            </p>
-            
-            <p>
-            LIGO basically uses laser beams traveling along two perpendicular lengths with mirrors at the ends and measures whether the lengths are the same by looking at the interference patterns when the two beams are recombined. If a gravitational wave hits, the lengths are changed with respect to each other very slightly, and this creates an interference that is measured.
-            </p>
-            <div class="image-container">
-                <img src="images/Ligo2.jpg" alt="">
-                <div class="caption">LIGO's perpendicular arms. Laser path in red. The boxes represent mirrors. The detector is shown as a circle.</div>
-            </div> 
-            <p><br> <br> <br> <br> <br> <br></p>
-    </section>
+    <script>
+        ////// Function to generate a valid Sudoku board with seed
+        function generateSudoku() {
+            const board = Array.from({ length: 9 }, () => Array(9).fill(''));
 
-    <section id="conclusions">
-      <h2>Conclusions</h2>
-      <p>What a wonderful place to end a story... <br>with readers more in awe with black holes and the thought scientists and engineers have put into uncovering them than they were when the story started.</p>
-      <div class="image-container">
-        <img src="images/bh3.jpg" alt="">
-        <div class="caption">Visualization of a black hole as a mysterious little creature.</div>
-      </div> 
-      <p>
-        Through telling the story of black holes we sure have highlighted crazy ways our universe behaves. <br> <br>As you travel faster time slows down. You can think of space and time as a woven fabric that curves with the presence of energy and mass. This curvature slows time down too. And even light that makes it past the event horizon can not escape the pull of a black hole.
-      </p>
-    </section>
-  </main>
-  <footer>
-    <p>&copy; 2023 Black Holes Educational Website. All rights reserved.<br>Many included images are AI generated for an artistic interpretation of black holes.</p>
-  </footer>
+            function isValid(board, row, col, num) {
+                for (let i = 0; i < 9; i++) {
+                    if (board[row][i] == num || board[i][col] == num ||
+                        board[Math.floor(row / 3) * 3 + Math.floor(i / 3)][Math.floor(col / 3) * 3 + i % 3] == num) {
+                        return false;
+                    }
+                }
+                return true;
+            }
 
-  <script>
-    // JavaScript code to handle scrolling behavior
+        // Create a seeded random generator
+            function createSeededRandom(seed) {
+                let s = seed % 2147483647;
+                if (s <= 0) s += 2147483646;
 
-    // Get all the section links
-    const sectionLinks = document.querySelectorAll('nav ul li a');
+                return function() {
+                    s = (s * 16807) % 2147483647;
+                    return (s - 1) / 2147483646;
+                };
+            }
 
-    // Add click event listener to each section link
-    sectionLinks.forEach(link => {
-      link.addEventListener('click', (event) => {
-        event.preventDefault(); // Prevent default link behavior
-        const target = document.querySelector(link.getAttribute('href')); // Get the target section
-        const offset = 150; // Adjust this value to leave some space above the section
-        const top = target.offsetTop - offset; // Calculate the top position
+            const now = new Date();
+            //special seed based on date
+            //let myseed = now.getHours() * 60 + now.getMinutes();
+            let myseed = now.getDay();
+            const seededRandom = createSeededRandom(myseed);
 
-        // Scroll to the target section
-        window.scrollTo({
-          top: top,
-          behavior: 'smooth'
+            //How it works
+            console.log(seededRandom()); // Random number between 0 and 1
+            console.log(seededRandom()); // Next random number
+            console.log(seededRandom()); // Next random number
+
+            function fillBoard(board) {
+                for (let row = 0; row < 9; row++) {
+                    for (let col = 0; col < 9; col++) {
+                        if (board[row][col] === '') {
+                            for (let num = 1; num <= 9; num++) {
+                                const randomNum = Math.floor(seededRandom() * 9) + 1;
+                                if (isValid(board, row, col, randomNum)) {
+                                    board[row][col] = randomNum;
+                                    if (fillBoard(board)) return true;
+                                    board[row][col] = '';
+                                }
+                            }
+                            return false;
+                        }
+                    }
+                }
+                return true;
+            }
+
+            fillBoard(board);
+
+            const puzzle = board.map(row => row.slice());
+            const numCellsToRemove = 45;
+            for (let i = 0; i < numCellsToRemove; i++) {
+                const row = Math.floor(seededRandom() * 9);
+                const col = Math.floor(seededRandom() * 9);
+                puzzle[row][col] = '';
+            }
+
+            return { puzzle, solution: board };
+        }
+
+        const basePuzzles = Array.from({ length: 100 }, generateSudoku);
+
+        let currentPuzzleIndex = Math.floor(Math.random() * basePuzzles.length);
+        let incorrectAttempts = 0;
+        let timer;
+        let timeElapsed = 0;
+        let maxHints = 50; // Set the maximum number of hints allowed
+        let hintCount = 0; // Track the number of hints used
+
+        function renderPuzzle(index) {
+            const puzzle = basePuzzles[index].puzzle;
+            const board = document.getElementById('sudoku-board');
+            board.innerHTML = '';
+            puzzle.forEach((row, rowIndex) => {
+                row.forEach((cell, colIndex) => {
+                    const input = document.createElement('input');
+                    input.type = 'text';
+                    input.maxLength = 3;
+                    input.value = cell || '';
+                    input.disabled = !!cell;
+                    input.dataset.row = rowIndex;
+                    input.dataset.col = colIndex;
+                    input.addEventListener('input', handleInput);
+                    board.appendChild(input);
+                });
+            });
+            startTimer();
+        }
+
+        function startTimer() {
+            if (timer) clearInterval(timer);
+            timeElapsed = 0;
+            document.getElementById('timer').innerText = `Time: ${timeElapsed}s`;
+            timer = setInterval(() => {
+                timeElapsed++;
+                document.getElementById('timer').innerText = `Time: ${timeElapsed}s`;
+            }, 1000);
+        }
+
+        function handleInput(event) {
+            const input = event.target;
+            const row = parseInt(input.dataset.row);
+            const col = parseInt(input.dataset.col);
+            const value = input.value ? parseInt(input.value) : null;
+            const correctValue = basePuzzles[currentPuzzleIndex].solution[row][col];
+
+            // Validate input is a single digit from 1-9
+            if (!/^\d$/.test(input.value)) {
+                input.value = "";
+                return;
+            }
+
+            if (value === correctValue) {
+                input.style.color = "#7fff00"; // Correct input turns green
+                input.disabled = true; // Lock correct input
+                checkCompletion(); // Check if the puzzle is completed
+            } else if (value !== null) {
+                input.value = "X"; // Clear incorrect value 
+                incorrectAttempts++; // Increment incorrect attempt count
+                document.getElementById('incorrect-attempts').innerText = `X's: ${incorrectAttempts}`;
+            }
+        }
+
+
+        function giveHint() {
+            const puzzle = basePuzzles[currentPuzzleIndex].puzzle;
+            const solution = basePuzzles[currentPuzzleIndex].solution;
+
+            // Get the current state of the board
+            const inputs = document.querySelectorAll('input');
+            let emptyCells = [];
+
+            inputs.forEach(input => {
+                const row = parseInt(input.dataset.row);
+                const col = parseInt(input.dataset.col);
+
+                // Check if the cell is empty and not pre-filled
+                if (!input.value && puzzle[row][col] === '') {
+                    emptyCells.push({ row, col });
+                }
+            });
+
+            if (emptyCells.length > 0 && hintCount < maxHints) {
+                const randomCell = emptyCells[Math.floor(Math.random() * emptyCells.length)];
+                const hintValue = solution[randomCell.row][randomCell.col];
+                const targetInput = Array.from(inputs).find(
+                    input => input.dataset.row == randomCell.row && input.dataset.col == randomCell.col
+                );
+
+                if (targetInput) {
+                    targetInput.value = hintValue;
+                    targetInput.disabled = true; // Lock the hint in place
+                    targetInput.classList.add("given"); // Optional: visually mark as a given cell
+                }
+
+                hintCount++;
+                checkCompletion();
+                document.getElementById('hint-button').innerText = `Hint (${maxHints - hintCount})`; // Update hint count
+
+                if (hintCount >= maxHints) {
+                    document.getElementById('hint-button').disabled = true; // Disable the button after reaching maxHints
+                }
+            }
+        }
+
+        function checkCompletion() {
+            const cells = document.querySelectorAll("#sudoku-board input");
+            const solution = basePuzzles[currentPuzzleIndex].solution;
+
+            // Verify if all cells are filled correctly
+            const isComplete = Array.from(cells).every(cell => {
+                const row = parseInt(cell.dataset.row);
+                const col = parseInt(cell.dataset.col);
+                return cell.value == solution[row][col];
+            });
+
+            if (isComplete) {
+                // Stop the timer
+                clearInterval(timer);
+
+                // Calculate the score
+                const baseScore = 10000;
+                const timePenalty = timeElapsed; // 1 point deducted per second
+                const incorrectPenalty = incorrectAttempts * 10; // 10 points deducted per incorrect attempt
+                const hintPenalty = hintCount * 500; // 500 points deducted per hint used
+
+                const finalScore = Math.max(baseScore - timePenalty - incorrectPenalty - hintPenalty, 1);
+                document.getElementById('timer').innerText = ` `;
+                document.getElementById('incorrect-attempts').innerText = ` `;
+                // Display completion message and score
+                const scoreDisplay = document.getElementById("score");
+                scoreDisplay.innerText = `🎉 Puzzle Complete! Score: ${finalScore}
+                Time: ${timeElapsed}s, X's: ${incorrectAttempts}, Hints: ${hintCount}`;
+
+                // Optionally disable further input
+                cells.forEach(cell => cell.disabled = true);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            renderPuzzle(currentPuzzleIndex);
+
+            document.getElementById('hint-button').addEventListener('click', giveHint);
+            document.getElementById('restart-button').addEventListener('click', () => renderPuzzle(currentPuzzleIndex));
         });
-      });
-    });
 
-  </script>
-  <script>
-    $(document).ready(function() {
-      $('.image-container').hover(
-        function() {
-          $(this).find('.caption').fadeIn(); // Fade in the caption on hover
-        },
-        function() {
-          $(this).find('.caption').fadeOut(); // Fade out the caption when not hovering
+    
+        let selectedNumber = null;  // This will store the currently selected number
+
+        // Function to render the Sudoku grid with inputs
+        function renderPuzzle(index) {
+            maxHints = 50; // Set the maximum number of hints allowed
+            hintCount = 0; // Track the number of hints used
+            incorrectAttempts = 0;
+            document.getElementById('score').innerText = ` `;
+            document.getElementById('incorrect-attempts').innerText = `Mistakes: 0`;
+            document.getElementById('hint-button').innerText = `Hint (${maxHints - hintCount})`; // Update hint count
+            const puzzle = basePuzzles[index].puzzle;
+            const board = document.getElementById('sudoku-board');
+            board.innerHTML = ''; // Clear previous board
+
+            puzzle.forEach((row, rowIndex) => {
+                row.forEach((cell, colIndex) => {
+                    const input = document.createElement('input');
+                    input.type = 'text';
+                    input.maxLength = 1;
+                    input.value = cell || ''; // Use the puzzle value if empty
+                    input.disabled = !!cell; // Disable if it's a given cell
+                    input.dataset.row = rowIndex;
+                    input.dataset.col = colIndex;
+
+                    // Add event listeners for input and focus events
+                    input.addEventListener('input', handleInput);
+                    input.addEventListener('focus', () => highlightCell(input)); // Add highlight on focus
+                    input.addEventListener('blur', () => removeHighlight(input)); // Remove highlight on blur
+
+                    board.appendChild(input);
+                });
+            });
+
+            startTimer();
         }
-      );
-    });
-  </script>
-  <script>
-    document.getElementById('search-button').addEventListener('click', function() {
-      var searchTerm = document.getElementById('search-input').value.trim();
-      var contentElements = document.querySelectorAll('main p, main h1, main h2, main h3, main h4, main h5, main h6');
-  
-      // Remove existing highlights
-      var highlights = document.querySelectorAll('.highlight');
-      for (var i = 0; i < highlights.length; i++) {
-        var highlight = highlights[i];
-        highlight.classList.remove('highlight');
-      }
-  
-      // Perform search
-      if (searchTerm !== '') {
-        var regex = new RegExp('(' + searchTerm + ')', 'gi');
-        var matchCount = 0;
-        var scrollOffset = 300;
-  
-        for (var i = 0; i < contentElements.length; i++) {
-          var element = contentElements[i];
-          var html = element.innerHTML;
-          var matches = html.match(regex);
-  
-          if (matches) {
-            matchCount += matches.length;
-            element.innerHTML = html.replace(regex, '<span class="highlight">$1</span>');
-  
-            var firstMatch = element.querySelector('.highlight');
-            var targetY = firstMatch.offsetTop - scrollOffset;
-            window.scrollTo({ top: targetY, behavior: 'smooth' });
-  
-            break; // Stop searching after the first match
-          }
+
+        /////////Hightlight same numbers
+
+        // Highlight the currently focused cell
+        function highlightCell(input) {
+            input.classList.add('highlighted');
         }
-      }
-    });
-  </script>
-  
-  
-  
-  
-  
-  
-  </body>
-  
+
+        // Remove highlight from a cell when focus is lost
+        function removeHighlight(input) {
+            input.classList.remove('highlighted');
+        }
+
+        // Function to handle number selection
+        function handleNumberSelection(event) {
+            // Get the selected number
+            const selectedNumber = event.target.getAttribute('data-number');
+
+            // Get all the cells in the board
+            const cells = document.querySelectorAll('#sudoku-board input');
+
+            // Toggle highlight on cells that match the selected number
+            cells.forEach(cell => {
+                if (cell.value === selectedNumber) {
+                    // If the cell is already highlighted, remove the highlight
+                    if (cell.classList.contains('highlighted')) {
+                        cell.classList.remove('highlighted');
+                    } else {
+                        // Otherwise, add the highlight
+                        cell.classList.add('highlighted');
+                    }
+                }
+            });
+        }
+
+        // Attach event listeners to the number buttons
+        const numberButtons = document.querySelectorAll('.number-button');
+        numberButtons.forEach(button => {
+            button.addEventListener('click', handleNumberSelection);
+        });
+
+        ///////Draft Mode
+
+        let isDraftMode = false;
+
+        // Toggle draft mode
+        document.getElementById("draft-button").addEventListener("click", () => {
+            isDraftMode = !isDraftMode;
+            const draftButton = document.getElementById("draft-button");
+            draftButton.innerText = isDraftMode ? "Draft" : "Draft";
+
+            // Change the button color based on draft mode status
+            if (isDraftMode) {
+                draftButton.style.backgroundColor = 'rgb(65, 110, 212)'; // Blue color for draft mode
+                draftButton.style.color = 'white'; // Ensure the text is readable
+            } else {
+                draftButton.style.backgroundColor = ''; // Reset button color
+                draftButton.style.color = ''; // Reset text color
+            }
+
+            // When leaving draft mode, ensure the cells retain draft numbers but are editable
+            if (!isDraftMode) {
+                document.querySelectorAll("input").forEach(input => {
+                    if (input.dataset.draft) {
+                        input.value = input.dataset.draft; // Show draft numbers in the cell
+                        input.style.color = "blue"; // Retain the visual indication for draft numbers
+                    }
+                });
+            }
+        });
+
+        // Handle input
+        function handleInput(event) {
+            const input = event.target;
+            const row = parseInt(input.dataset.row);
+            const col = parseInt(input.dataset.col);
+            const value = input.value.trim();
+            const correctValue = basePuzzles[currentPuzzleIndex].solution[row][col];
+
+            // Ensure the input container can store draft values
+            if (!input.dataset.draft) input.dataset.draft = ""; // Initialize draft mode data
+
+            if (isDraftMode) {
+                input.style.color = "blue"; // Draft mode inputs are blue
+                if (/^\d$/.test(value)) {
+                    const currentDraft = input.dataset.draft.split("").filter(v => v !== "");
+                    if (!currentDraft.includes(value) && currentDraft.length < 3) {
+                        currentDraft.push(value); // Add the draft value
+                        input.dataset.draft = currentDraft.join(""); // Update draft data
+                        input.value = currentDraft.join(""); // Display draft numbers in the cell
+                    }
+                }
+            } else {
+                // Validate input is a single digit from 1-9
+                if (!/^\d$/.test(value)) {
+                    input.value = ""; // Clear invalid inputs
+                    return;
+                }
+
+                if (parseInt(value) === correctValue) {
+                    input.style.color = "#008000"; // Correct input turns green
+                    input.disabled = true; // Lock correct input
+                    input.dataset.draft = ""; // Clear any draft data
+                    checkCompletion(); // Check if the puzzle is completed
+                } else {
+                    input.value = "X"; // Clear incorrect value
+                    incorrectAttempts++; // Increment incorrect attempt count
+                    document.getElementById('incorrect-attempts').innerText = `X's: ${incorrectAttempts}`;
+                }
+            }
+        }
+
+        // Handle key events for delete functionality
+        document.querySelectorAll("input").forEach(input => {
+            input.addEventListener("keydown", (event) => {
+                if (!isDraftMode && event.key === "Delete") {
+                    input.dataset.draft = ""; // Clear draft data
+                    input.value = ""; // Clear input display
+                    input.style.color = "black"; // Reset to normal color
+                }
+            });
+        });
+
+        // Keep drafted values intact when toggling draft mode
+        document.getElementById("draft-button").addEventListener("click", () => {
+            if (!isDraftMode) {
+                document.querySelectorAll("input[data-draft]").forEach(input => {
+                    if (input.dataset.draft) {
+                        input.value = input.dataset.draft; // Retain drafted values
+                        input.style.color = "blue"; // Keep draft values visually distinct
+                    }
+                });
+            }
+        });
+
+    </script>
 </body>
 </html>
